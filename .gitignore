@@ -1,3 +1,6 @@
 #Emacs temp files
 *~
 auto-save-list*
+tramp
+eshell*
+session*

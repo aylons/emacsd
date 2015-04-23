@@ -22,9 +22,6 @@
 
 ;; Magit configuration
 (global-set-key (kbd "C-x g") 'magit-status)
-(add-to-list 'load-path "~/.emacs.d/magit-push-remote/")
-(require 'magit-push-remote)
-(magit-push-remote-mode 1)
 
 ;; Rainbow delimiters
 (add-to-list 'load-path "~/.emacs.d/rainbow_delimiters/")
@@ -46,6 +43,19 @@
 (add-hook 'org-clock-in-hook (lambda ()
       (if (not org-timer-current-timer) 
       (org-timer-set-timer '(16)))))
+
+;; Octave mode
+(autoload 'octave-mode "octave-mod" nil t)
+(setq auto-mode-alist
+      (cons '("\\.m$" . octave-mode) auto-mode-alist))
+
+(add-hook 'octave-mode-hook
+          (lambda ()
+            (abbrev-mode 1)
+            (auto-fill-mode 1)
+            (if (eq window-system 'x)
+                (font-lock-mode 1))))
+
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
