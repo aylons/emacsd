@@ -99,3 +99,6 @@
 
 ; Tramp mode
 (setq tramp-default-method "ssh")
+
+;; Remove toolbar
+(tool-bar-mode 0)
