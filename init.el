@@ -5,11 +5,35 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes (quote (wheatgrass)))
- '(org-file-apps (quote ((auto-mode . emacs) ("\\.mm\\'" . default) ("\\.x?html?\\'" . default) ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1"))))
- '(package-archives (quote (("gnu" . "http://elpa.gnu.org/packages/") ("marmalade" . "http://marmalade-repo.org/packages/"))))
- '(vhdl-compiler-alist (quote (("ADVance MS" "vacom" "-work \\1" "make" "-f \\1" nil "valib \\1; vamap \\2 \\1" "./" "work/" "Makefile" "adms" ("\\s-\\([0-9]+\\):" 0 1 0) ("Compiling file \\(.+\\)" 1) ("ENTI/\\1.vif" "ARCH/\\1-\\2.vif" "CONF/\\1.vif" "PACK/\\1.vif" "BODY/\\1.vif" upcase)) ("Aldec" "vcom" "-93 -work \\1" "make" "-f \\1" nil "vlib \\1; vmap \\2 \\1" "./" "work/" "Makefile" "aldec" (".+?[ 	]+\\(?:ERROR\\)[^:]+:.+?\\(?:.+\"\\(.+?\\)\"[ 	]+\\([0-9]+\\)\\)" 1 2 0) ("" 0) nil) ("Cadence Leapfrog" "cv" "-work \\1 -file" "make" "-f \\1" nil "mkdir \\1" "./" "work/" "Makefile" "leapfrog" ("duluth: \\*E,[0-9]+ (\\(.+\\),\\([0-9]+\\)):" 1 2 0) ("" 0) ("\\1/entity" "\\2/\\1" "\\1/configuration" "\\1/package" "\\1/body" downcase)) ("Cadence NC" "ncvhdl" "-work \\1" "make" "-f \\1" nil "mkdir \\1" "./" "work/" "Makefile" "ncvhdl" ("ncvhdl_p: \\*E,\\w+ (\\(.+\\),\\([0-9]+\\)|\\([0-9]+\\)):" 1 2 3) ("" 0) ("\\1/entity/pc.db" "\\2/\\1/pc.db" "\\1/configuration/pc.db" "\\1/package/pc.db" "\\1/body/pc.db" downcase)) ("GHDL" "ghdl" "-i --workdir=\\1 --ieee=synopsys -fexplicit " "make" "-f \\1" nil "mkdir \\1" "./" "work/" "Makefile" "ghdl" ("ghdl_p: \\*E,\\w+ (\\(.+\\),\\([0-9]+\\)|\\([0-9]+\\)):" 1 2 3) ("" 0) ("\\1/entity" "\\2/\\1" "\\1/configuration" "\\1/package" "\\1/body" downcase)) ("Ikos" "analyze" "-l \\1" "make" "-f \\1" nil "mkdir \\1" "./" "work/" "Makefile" "ikos" ("E L\\([0-9]+\\)/C\\([0-9]+\\):" 0 1 2) ("^analyze +\\(.+ +\\)*\\(.+\\)$" 2) nil) ("ModelSim" "vcom" "-93 -work \\1" "make" "-f \\1" nil "vlib \\1; vmap \\2 \\1" "./" "work/" "Makefile" "modelsim" ("\\(ERROR\\|WARNING\\|\\*\\* Error\\|\\*\\* Warning\\)[^:]*:\\( *[[0-9]+]\\)? \\(.+\\)(\\([0-9]+\\)):" 3 4 0) ("" 0) ("\\1/_primary.dat" "\\2/\\1.dat" "\\1/_primary.dat" "\\1/_primary.dat" "\\1/body.dat" downcase)) ("LEDA ProVHDL" "provhdl" "-w \\1 -f" "make" "-f \\1" nil "mkdir \\1" "./" "work/" "Makefile" "provhdl" ("\\([^ 	
-]+\\):\\([0-9]+\\): " 1 2 0) ("" 0) ("ENTI/\\1.vif" "ARCH/\\1-\\2.vif" "CONF/\\1.vif" "PACK/\\1.vif" "BODY/BODY-\\1.vif" upcase)) ("QuickHDL" "qvhcom" "-work \\1" "make" "-f \\1" nil "mkdir \\1" "./" "work/" "Makefile" "quickhdl" ("\\(ERROR\\|WARNING\\)[^:]*: \\(.+\\)(\\([0-9]+\\)):" 2 3 0) ("" 0) ("\\1/_primary.dat" "\\2/\\1.dat" "\\1/_primary.dat" "\\1/_primary.dat" "\\1/body.dat" downcase)) ("Savant" "scram" "-publish-cc -design-library-name \\1" "make" "-f \\1" nil "mkdir \\1" "./" "work._savant_lib/" "Makefile" "savant" ("\\([^ 	
-]+\\):\\([0-9]+\\): " 1 2 0) ("" 0) ("\\1_entity.vhdl" "\\2_secondary_units._savant_lib/\\2_\\1.vhdl" "\\1_config.vhdl" "\\1_package.vhdl" "\\1_secondary_units._savant_lib/\\1_package_body.vhdl" downcase)) ("Simili" "vhdlp" "-work \\1" "make" "-f \\1" nil "mkdir \\1" "./" "work/" "Makefile" "simili" ("\\(Error\\|Warning\\): \\w+: \\(.+\\): (line \\([0-9]+\\)): " 2 3 0) ("" 0) ("\\1/prim.var" "\\2/_\\1.var" "\\1/prim.var" "\\1/prim.var" "\\1/_body.var" downcase)) ("Speedwave" "analyze" "-libfile vsslib.ini -src" "make" "-f \\1" nil "mkdir \\1" "./" "work/" "Makefile" "speedwave" ("^ *ERROR[[0-9]+]::File \\(.+\\) Line \\([0-9]+\\):" 1 2 0) ("" 0) nil) ("Synopsys" "vhdlan" "-nc -work \\1" "make" "-f \\1" nil "mkdir \\1" "./" "work/" "Makefile" "synopsys" ("\\*\\*Error: vhdlan,[0-9]+ \\(.+\\)(\\([0-9]+\\)):" 1 2 0) ("" 0) ("\\1.sim" "\\2__\\1.sim" "\\1.sim" "\\1.sim" "\\1__.sim" upcase)) ("Synopsys Design Compiler" "vhdlan" "-nc -spc -work \\1" "make" "-f \\1" nil "mkdir \\1" "./" "work/" "Makefile" "synopsys_dc" ("\\*\\*Error: vhdlan,[0-9]+ \\(.+\\)(\\([0-9]+\\)):" 1 2 0) ("" 0) ("\\1.syn" "\\2__\\1.syn" "\\1.syn" "\\1.syn" "\\1__.syn" upcase)) ("Synplify" "n/a" "n/a" "make" "-f \\1" nil "mkdir \\1" "./" "work/" "Makefile" "synplify" ("@[EWN]:\"\\(.+\\)\":\\([0-9]+\\):\\([0-9]+\\):" 1 2 3) ("" 0) nil) ("Vantage" "analyze" "-libfile vsslib.ini -src" "make" "-f \\1" nil "mkdir \\1" "./" "work/" "Makefile" "vantage" ("\\*\\*Error: LINE \\([0-9]+\\) \\*\\*\\*" 0 1 0) ("^ *Compiling \"\\(.+\\)\" " 1) nil) ("VeriBest" "vc" "vhdl" "make" "-f \\1" nil "mkdir \\1" "./" "work/" "Makefile" "veribest" ("^ +\\([0-9]+\\): +[^ ]" 0 1 0) ("" 0) nil) ("Viewlogic" "analyze" "-libfile vsslib.ini -src" "make" "-f \\1" nil "mkdir \\1" "./" "work/" "Makefile" "viewlogic" ("\\*\\*Error: LINE \\([0-9]+\\) \\*\\*\\*" 0 1 0) ("^ *Compiling \"\\(.+\\)\" " 1) nil) ("Xilinx XST" "xflow" "" "make" "-f \\1" nil "mkdir \\1" "./" "work/" "Makefile" "xilinx" ("^ERROR:HDLParsers:[0-9]+ - \"\\(.+\\)\" Line \\([0-9]+\\)." 1 2 0) ("" 0) nil)))))
+ '(org-file-apps
+   (quote
+    ((auto-mode . emacs)
+     ("\\.mm\\'" . default)
+     ("\\.x?html?\\'" . default)
+     ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1"))))
+ '(package-archives
+   (quote
+    (("gnu" . "http://elpa.gnu.org/packages/")
+     ("marmalade" . "http://marmalade-repo.org/packages/"))))
+ '(vhdl-copyright-string
+   "-------------------------------------------------------------------------------
+-- Copyright (c) <year> <company>    
+
+-- This program is free software: you can redistribute it and/or
+-- modify it under the terms of the GNU Lesser General Public License
+-- as published by the Free Software Foundation, either version 3 of
+-- the License, or (at your option) any later version.
+--
+-- This program is distributed in the hope that it will be useful, but
+-- WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+-- Lesser General Public License for more details.
+--
+-- You should have received a copy of the GNU Lesser General Public
+-- License along with this program. If not, see
+-- <http://www.gnu.org/licenses/>.
+
+"))
 
 ;; for spotify
 (require 'dbus)
@@ -79,7 +103,7 @@
 
 
 ;; Set octave mode for .m files
-(autoload 'octave-mode "octave-mod" nil t)
+(autoload 'octave-mode "octave" nil t)
 (setq auto-mode-alist
       (cons '("\\.m$" . octave-mode) auto-mode-alist))
 
@@ -90,15 +114,110 @@
             (if (eq window-system 'x)
                 (font-lock-mode 1))))
 
-;; Smex
-(require 'smex)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-;; This is your old M-x.
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+;; RET adds a newline and indents it 
+(add-hook 'octave-mode-hook 
+	  '(lambda nil
+	     (define-key octave-mode-map [(control space)]
+	       'octave-complete-symbol) ;; I prefere C-SPC
+	     (define-key octave-mode-map [(meta control tab)] 
+	       'octave-complete-symbol)))
+
+
+(add-hook 'inferior-octave-mode-hook
+          (lambda ()
+            (turn-on-font-lock)
+            (define-key inferior-octave-mode-map [up]
+              'comint-previous-input)
+            (define-key inferior-octave-mode-map [down]
+              'comint-next-input)))
+
+
+(defun my-inferior-octave-listening-p ()
+  "True if inferior octave is running and ready to receive input.
+    Required for eldoc and other functions that try to get
+    information from the running Octave, so they don't freeze emacs
+    when Octave is busy doing something else."
+  (and (boundp 'inferior-octave-process)
+       inferior-octave-process
+       (not inferior-octave-receive-in-progress)
+       (eq (process-status inferior-octave-process) 'run)))
+
+(defun my-octave-complete-symbol ()
+  "Perform completion on Octave symbol preceding point.
+    Compare that symbol against Octave's reserved words and builtin
+    variables.  This is like the default Octave completer function,
+    except that it also completes on structure fields."
+  (interactive)
+  ;; This code taken from lisp-complete-symbol
+  (let* ((end (point))
+	 (beg (save-excursion (backward-sexp 1) (point)))
+	 (string (buffer-substring-no-properties beg end))
+	 (completion (try-completion string octave-completion-alist)))
+    (if completion
+	(setq completion-list octave-completion-alist)
+      (when (my-inferior-octave-listening-p)
+	(setq completion-list
+	      (save-excursion
+		(inferior-octave-send-list-and-digest
+		 (list (format "completion_matches(\"%s\");\n" string)))
+		inferior-octave-output-list))
+	(when completion-list
+	  (setq completion
+		(try-completion string inferior-octave-output-list)))))
+    
+    (cond ((eq completion t))           ; ???
+	  ((null completion)
+               (message "Can't find completion for \"%s\"" string))
+	  ((not (string= string completion))
+	   (delete-region beg end)
+	   (goto-char beg)
+	   (insert completion))
+	  (t
+	   (let ((list (all-completions string completion-list))
+		 (conf (current-window-configuration)))
+	     ;; Taken from comint.el
+	     (message "Making completion list...")
+	     (with-output-to-temp-buffer "*Completions*"
+	       (display-completion-list list))
+	     (message "Hit space to flush")
+	     (let (key first)
+	       (if (save-excursion
+		     (set-buffer (get-buffer "*Completions*"))
+		     (setq key (read-key-sequence nil)
+			   first (aref key 0))
+		     (and (consp first) (consp (event-start first))
+			  (eq (window-buffer (posn-window (event-start
+							   first)))
+			      (get-buffer "*Completions*"))
+			  (eq (key-binding key) 'mouse-choose-completion)))
+		   (progn
+		     (mouse-choose-completion first)
+		     (set-window-configuration conf))
+		 (if (eq first ?\ )
+		     (set-window-configuration conf)
+		   (setq unread-command-events
+			 (listify-key-sequence key))))))))))
 
 ; Tramp mode
 (setq tramp-default-method "ssh")
 
 ;; Remove toolbar
 (tool-bar-mode 0)
+
+;; Ease window resizing
+(global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "S-C-<down>") 'shrink-window)
+(global-set-key (kbd "S-C-<up>") 'enlarge-window)
+
+
+;; Smex
+(add-hook 'after-init-hook 'my-after-init-hook)
+(defun my-after-init-hook ()
+  (require 'smex)
+  (global-set-key (kbd "M-x") 'smex)
+  (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+  
+  ;; This is your old M-x.
+  (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+  )
