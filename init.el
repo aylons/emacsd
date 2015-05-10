@@ -15,6 +15,7 @@
    (quote
     (("gnu" . "http://elpa.gnu.org/packages/")
      ("marmalade" . "http://marmalade-repo.org/packages/"))))
+ '(py-shell-name "ipython")
  '(vhdl-copyright-string
    "-------------------------------------------------------------------------------
 -- Copyright (c) <year> <company>    
@@ -210,6 +211,12 @@
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
 
+;; Python mode
+(setq py-install-directory "~/.emacs.d/python-mode/")
+(add-to-list 'load-path py-install-directory)
+(autoload 'python-mode "python-mode" "Python Mode." t)
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+(add-to-list 'interpreter-mode-alist '("python" . python-mode))
 
 ;; Smex
 (add-hook 'after-init-hook 'my-after-init-hook)
@@ -221,3 +228,4 @@
   ;; This is your old M-x.
   (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
   )
+
