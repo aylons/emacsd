@@ -15,7 +15,7 @@
    (quote
     (("gnu" . "http://elpa.gnu.org/packages/")
      ("marmalade" . "http://marmalade-repo.org/packages/"))))
- '(py-shell-name "ipython")
+ '(py-shell-name "ipython3")
  '(vhdl-copyright-string
    "-------------------------------------------------------------------------------
 -- Copyright (c) <year> <company>    
