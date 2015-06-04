@@ -48,6 +48,28 @@
 ;; Magit configuration
 (global-set-key (kbd "C-x g") 'magit-status)
 
+
+
+(defun magit-toggle-whitespace ()
+  (interactive)
+  (if (member "-w" magit-diff-options)
+      (magit-dont-ignore-whitespace)
+    (magit-ignore-whitespace)))
+
+(defun magit-ignore-whitespace ()
+  (interactive)
+  (add-to-list 'magit-diff-options "-w")
+  (magit-refresh))
+
+(defun magit-dont-ignore-whitespace ()
+  (interactive)
+  (setq magit-diff-options (remove "-w" magit-diff-options))
+  (magit-refresh))
+
+(define-key magit-status-mode-map (kbd "W") 'magit-toggle-whitespace)
+
+
+
 ;; Rainbow delimiters
 (add-to-list 'load-path "~/.emacs.d/rainbow_delimiters/")
 (require 'rainbow-delimiters)
@@ -212,11 +234,11 @@
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
 
 ;; Python mode
-(setq py-install-directory "~/.emacs.d/python-mode/")
-(add-to-list 'load-path py-install-directory)
-(autoload 'python-mode "python-mode" "Python Mode." t)
-(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-(add-to-list 'interpreter-mode-alist '("python" . python-mode))
+;; (setq py-install-directory "~/.emacs.d/python-mode/")
+;; (add-to-list 'load-path py-install-directory)
+;; (autoload 'python-mode "python-mode" "Python Mode." t)
+;; (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+;; (add-to-list 'interpreter-mode-alist '("python" . python-mode))
 
 ;; Smex
 (add-hook 'after-init-hook 'my-after-init-hook)
@@ -233,3 +255,12 @@
 (global-set-key (kbd "C-x <down>") 'windmove-down)
 (global-set-key (kbd "C-x <right>") 'windmove-right)
 (global-set-key (kbd "C-x <left>") 'windmove-left)
+
+;; (require 'package)
+;; (add-to-list 'package-archives
+;;              '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+
+;; (package-initialize)
+;; (elpy-enable)
+
+
