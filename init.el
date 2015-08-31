@@ -5,6 +5,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes (quote (wheatgrass)))
+ '(ede-project-directories (quote ("/home/aylons/projetos/afcipm")))
  '(org-file-apps
    (quote
     ((auto-mode . emacs)
@@ -40,9 +41,9 @@
 (require 'dbus)
 (require 'cl) 
 (setq spotify-enable-song-notifications t)
-(define-key global-map (kbd "<f6>") 'spotify-previous)
-(define-key global-map (kbd "<f7>") 'spotify-playpause)
-(define-key global-map (kbd "<f8>") 'spotify-next)
+(define-key global-map (kbd "C-<f6>") 'spotify-previous)
+(define-key global-map (kbd "C-<f7>") 'spotify-playpause)
+(define-key global-map (kbd "C-<f8>") 'spotify-next)
 
 
 ;; Magit configuration
@@ -91,7 +92,7 @@
       (org-timer-set-timer '(16)))))
 
 ;; Octave mode
-(autoload 'octave-mode "octave-mod" nil t)
+(autoload 'octave-mode "octave-mode" nil t)
 (setq auto-mode-alist
       (cons '("\\.m$" . octave-mode) auto-mode-alist))
 
@@ -125,10 +126,10 @@
 (put 'scroll-left 'disabled nil)
 
 
-;; Set octave mode for .m files
-(autoload 'octave-mode "octave" nil t)
-(setq auto-mode-alist
-      (cons '("\\.m$" . octave-mode) auto-mode-alist))
+;; ;; Set octave mode for .m files
+;; (autoload 'octave-mode "octave" nil t)
+;; (setq auto-mode-alist
+;;       (cons '("\\.m$" . octave-mode) auto-mode-alist))
 
 (add-hook 'octave-mode-hook
           (lambda ()
@@ -155,71 +156,81 @@
               'comint-next-input)))
 
 
-(defun my-inferior-octave-listening-p ()
-  "True if inferior octave is running and ready to receive input.
-    Required for eldoc and other functions that try to get
-    information from the running Octave, so they don't freeze emacs
-    when Octave is busy doing something else."
-  (and (boundp 'inferior-octave-process)
-       inferior-octave-process
-       (not inferior-octave-receive-in-progress)
-       (eq (process-status inferior-octave-process) 'run)))
+;; (defun my-inferior-octave-listening-p ()
+;;   "True if inferior octave is running and ready to receive input.
+;;     Required for eldoc and other functions that try to get
+;;     information from the running Octave, so they don't freeze emacs
+;;     when Octave is busy doing something else."
+;;   (and (boundp 'inferior-octave-process)
+;;        inferior-octave-process
+;;        (not inferior-octave-receive-in-progress)
+;;        (eq (process-status inferior-octave-process) 'run)))
 
-(defun my-octave-complete-symbol ()
-  "Perform completion on Octave symbol preceding point.
-    Compare that symbol against Octave's reserved words and builtin
-    variables.  This is like the default Octave completer function,
-    except that it also completes on structure fields."
-  (interactive)
-  ;; This code taken from lisp-complete-symbol
-  (let* ((end (point))
-	 (beg (save-excursion (backward-sexp 1) (point)))
-	 (string (buffer-substring-no-properties beg end))
-	 (completion (try-completion string octave-completion-alist)))
-    (if completion
-	(setq completion-list octave-completion-alist)
-      (when (my-inferior-octave-listening-p)
-	(setq completion-list
-	      (save-excursion
-		(inferior-octave-send-list-and-digest
-		 (list (format "completion_matches(\"%s\");\n" string)))
-		inferior-octave-output-list))
-	(when completion-list
-	  (setq completion
-		(try-completion string inferior-octave-output-list)))))
+;; (defun my-octave-complete-symbol ()
+;;   "Perform completion on Octave symbol preceding point.
+;;     Compare that symbol against Octave's reserved words and builtin
+;;     variables.  This is like the default Octave completer function,
+;;     except that it also completes on structure fields."
+;;   (interactive)
+;;   ;; This code taken from lisp-complete-symbol
+;;   (let* ((end (point))
+;; 	 (beg (save-excursion (backward-sexp 1) (point)))
+;; 	 (string (buffer-substring-no-properties beg end))
+;; 	 (completion (try-completion string octave-completion-alist)))
+;;     (if completion
+;; 	(setq completion-list octave-completion-alist)
+;;       (when (my-inferior-octave-listening-p)
+;; 	(setq completion-list
+;; 	      (save-excursion
+;; 		(inferior-octave-send-list-and-digest
+;; 		 (list (format "completion_matches(\"%s\");\n" string)))
+;; 		inferior-octave-output-list))
+;; 	(when completion-list
+;; 	  (setq completion
+;; 		(try-completion string inferior-octave-output-list)))))
     
-    (cond ((eq completion t))           ; ???
-	  ((null completion)
-               (message "Can't find completion for \"%s\"" string))
-	  ((not (string= string completion))
-	   (delete-region beg end)
-	   (goto-char beg)
-	   (insert completion))
-	  (t
-	   (let ((list (all-completions string completion-list))
-		 (conf (current-window-configuration)))
-	     ;; Taken from comint.el
-	     (message "Making completion list...")
-	     (with-output-to-temp-buffer "*Completions*"
-	       (display-completion-list list))
-	     (message "Hit space to flush")
-	     (let (key first)
-	       (if (save-excursion
-		     (set-buffer (get-buffer "*Completions*"))
-		     (setq key (read-key-sequence nil)
-			   first (aref key 0))
-		     (and (consp first) (consp (event-start first))
-			  (eq (window-buffer (posn-window (event-start
-							   first)))
-			      (get-buffer "*Completions*"))
-			  (eq (key-binding key) 'mouse-choose-completion)))
-		   (progn
-		     (mouse-choose-completion first)
-		     (set-window-configuration conf))
-		 (if (eq first ?\ )
-		     (set-window-configuration conf)
-		   (setq unread-command-events
-			 (listify-key-sequence key))))))))))
+;;     (cond ((eq completion t))           ; ???
+;; 	  ((null completion)
+;;                (message "Can't find completion for \"%s\"" string))
+;; 	  ((not (string= string completion))
+;; 	   (delete-region beg end)
+;; 	   (goto-char beg)
+;; 	   (insert completion))
+;; 	  (t
+;; 	   (let ((list (all-completions string completion-list))
+;; 		 (conf (current-window-configuration)))
+;; 	     ;; Taken from comint.el
+;; 	     (message "Making completion list...")
+;; 	     (with-output-to-temp-buffer "*Completions*"
+;; 	       (display-completion-list list))
+;; 	     (message "Hit space to flush")
+;; 	     (let (key first)
+;; 	       (if (save-excursion
+;; 		     (set-buffer (get-buffer "*Completions*"))
+;; 		     (setq key (read-key-sequence nil)
+;; 			   first (aref key 0))
+;; 		     (and (consp first) (consp (event-start first))
+;; 			  (eq (window-buffer (posn-window (event-start
+;; 							   first)))
+;; 			      (get-buffer "*Completions*"))
+;; 			  (eq (key-binding key) 'mouse-choose-completion)))
+;; 		   (progn
+;; 		     (mouse-choose-completion first)
+;; 		     (set-window-configuration conf))
+;; 		 (if (eq first ?\ )
+;; 		     (set-window-configuration conf)
+;; 		   (setq unread-command-events
+;; 			 (listify-key-sequence key))))))))))
+
+(add-to-list 'load-path "~/.emacs.d/matlab/")
+(require 'matlab-load)
+
+;; for GDB/debugging in general
+(global-set-key (kbd "<f10>") 'gud-cont)
+(global-set-key (kbd "<f9>") 'gud-step);; equiv matlab step in
+(global-set-key (kbd "<f8>") 'gud-next) ;; equiv matlab step 1 
+(global-set-key (kbd "<f7>") 'gud-finish) ;; equiv matlab step out
+
 
 ; Tramp mode
 (setq tramp-default-method "ssh")
@@ -256,7 +267,6 @@
 (global-set-key (kbd "C-x <right>") 'windmove-right)
 (global-set-key (kbd "C-x <left>") 'windmove-left)
 
-;; (require 'package)
 ;; (add-to-list 'package-archives
 ;;              '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 
