@@ -6,16 +6,17 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes (quote (wheatgrass)))
  '(ede-project-directories (quote ("/home/aylons/projetos/afcipm")))
+ '(inhibit-startup-screen t)
  '(org-file-apps
    (quote
-    ((auto-mode . emacs)
-     ("\\.mm\\'" . default)
-     ("\\.x?html?\\'" . default)
-     ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1"))))
+	((auto-mode . emacs)
+	 ("\\.mm\\'" . default)
+	 ("\\.x?html?\\'" . default)
+	 ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1"))))
  '(package-archives
    (quote
-    (("gnu" . "http://elpa.gnu.org/packages/")
-     ("marmalade" . "http://marmalade-repo.org/packages/"))))
+	(("gnu" . "http://elpa.gnu.org/packages/")
+	 ("marmalade" . "http://marmalade-repo.org/packages/"))))
  '(py-shell-name "ipython3")
  '(vhdl-copyright-string
    "-------------------------------------------------------------------------------
@@ -250,6 +251,18 @@
 ;; (autoload 'python-mode "python-mode" "Python Mode." t)
 ;; (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 ;; (add-to-list 'interpreter-mode-alist '("python" . python-mode))
+
+;; Doxymacs
+(add-to-list 'load-path "~/.emacs.d/doxymacs/")
+(add-hook 'c-mode-common-hook
+  (lambda ()
+    (require 'doxymacs)
+    (doxymacs-mode t)
+    (doxymacs-font-lock)))
+
+(setq-default c-basic-offset 4
+	      tab-width 4
+	      indent-tabs-mode t)
 
 ;; Smex
 (add-hook 'after-init-hook 'my-after-init-hook)
