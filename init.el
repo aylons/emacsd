@@ -81,9 +81,10 @@
 (require 'org)
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
 (setq org-log-done t)
 
-(load "~/org-files.el")
+;;(load "~/org-files.el")
 
 (add-to-list 'org-modules 'org-timer)
 (setq org-timer-default-timer 25)
@@ -287,3 +288,4 @@
 ;; (elpy-enable)
 
 
+(put 'dired-find-alternate-file 'disabled nil)
