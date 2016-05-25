@@ -19,7 +19,8 @@
  '(package-archives
    (quote
 	(("gnu" . "http://elpa.gnu.org/packages/")
-	 ("marmalade" . "http://marmalade-repo.org/packages/"))))
+	 ("melpa-stable" . "https://stable.melpa.org/packages/")
+	 ("marmalade" . "https://marmalade-repo.org/packages/"))))
  '(py-shell-name "ipython3")
  '(vhdl-copyright-string
    "-------------------------------------------------------------------------------
@@ -115,6 +116,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Anonymous Pro" :foundry "unknown" :slant normal :weight normal :height 128 :width normal))))
+ '(magit-diff-added ((t (:background "#335533" :foreground "blue"))))
+ '(magit-diff-added-highlight ((t (:background "#336633" :foreground "blue"))))
+ '(magit-sequence-done ((t (:foreground "grey"))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "DeepSkyBlue1"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "goldenrod1"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "aquamarine1"))))
