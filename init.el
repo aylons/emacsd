@@ -95,7 +95,20 @@
 
 (add-hook 'org-clock-in-hook (lambda ()
       (if (not org-timer-current-timer) 
-      (org-timer-set-timer '(16)))))
+		  (org-timer-set-timer '(16)))))
+
+(require 'ox-latex)
+
+
+;; Billauer latex class
+(add-to-list 'org-latex-classes
+	     '("hitec"
+	       "\\documentclass{hitec}"
+	       ("\\chapter{%s}" . "\\chapter*{%s}")
+	       ("\\section{%s}" . "\\section*{%s}")
+	       ("\\subsection{%s}" . "\\subsection*{%s}")
+	       ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
+	                   )
 
 ;; Octave mode
 (autoload 'octave-mode "octave-mode" nil t)
