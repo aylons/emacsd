@@ -13,6 +13,9 @@
 	 ("\\.mm\\'" . default)
 	 ("\\.x?html?\\'" . default)
 	 ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1"))))
+ '(org-todo-keywords
+   (quote
+	((sequence "TODO(t)" "DONE(d)" "WAITING(w)" "SOMEDAY(s)"))))
  '(package-archives
    (quote
 	(("gnu" . "http://elpa.gnu.org/packages/")
@@ -289,3 +292,5 @@
 
 
 (put 'dired-find-alternate-file 'disabled nil)
+
+;(find-file "~/todo.org")			   
