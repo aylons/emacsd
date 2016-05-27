@@ -13,7 +13,9 @@
 	 (- (point-max) 1)))))		; -1 to remove parenthesis
 
 (defun recover-packages (package-file)
-  (mapc 'package-install
-	(mapcar 'intern
-		(read-package-list package-file))))
+  (progn
+	(package-refresh-contents)
+	(mapc 'package-install
+		  (mapcar 'intern
+				  (read-package-list package-file)))))
 
