@@ -18,7 +18,4 @@
 	(mapc 'package-install
 		  (mapcar 'intern
 				  (read-package-list package-file))))
-
-(recover-packages package-file)
-
 	
