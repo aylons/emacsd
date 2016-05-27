@@ -1,4 +1,8 @@
 (require 'package)
+
+(setq package-file (expand-file-name "package.lst" user-emacs-directory))
+(recover-packages package-file)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
