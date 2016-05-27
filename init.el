@@ -43,8 +43,19 @@
 
 "))
 
+;; basic behaviour
+(setq search-highlight t                 ;; highlight when searching...
+	  query-replace-highlight t)             ;; ...and replacing
+(fset 'yes-or-no-p 'y-or-n-p)            ;; enable y/n answers to yes/no
 
+(setq
+ confirm-nonexistent-file-or-buffer nil  ;; not needed
+ completion-ignore-case t                ;; ignore case when completing...
+ read-file-name-completion-ignore-case t) ;; ...filenames too
 
+;; font size
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
 
 ;; for spotify
 (require 'dbus)
