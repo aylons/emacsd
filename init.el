@@ -1,8 +1,5 @@
 (require 'package)
 
-(setq package-file (expand-file-name "package.lst" user-emacs-directory))
-(recover-packages package-file)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -17,14 +14,14 @@
 	 ("\\.mm\\'" . default)
 	 ("\\.x?html?\\'" . default)
 	 ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1"))))
+ '(package-archives
+  (quote
+   (("gnu" . "http://elpa.gnu.org/packages/")
+    ("melpa-stable" . "https://stable.melpa.org/packages/")
+    ("marmalade" . "https://marmalade-repo.org/packages/"))))
  '(org-todo-keywords
    (quote
 	((sequence "TODO(t)" "DONE(d)" "WAITING(w)" "SOMEDAY(s)"))))
- '(package-archives
-   (quote
-	(("gnu" . "http://elpa.gnu.org/packages/")
-	 ("melpa-stable" . "https://stable.melpa.org/packages/")
-	 ("marmalade" . "https://marmalade-repo.org/packages/"))))
  '(py-shell-name "ipython3")
  '(vhdl-copyright-string
    "-------------------------------------------------------------------------------
@@ -45,6 +42,9 @@
 -- <http://www.gnu.org/licenses/>.
 
 "))
+
+
+
 
 ;; for spotify
 (require 'dbus)
@@ -291,13 +291,16 @@
 
 ;; Smex
 (add-hook 'after-init-hook 'my-after-init-hook)
+
 (defun my-after-init-hook ()
+
   (require 'smex)
   (global-set-key (kbd "M-x") 'smex)
   (global-set-key (kbd "M-X") 'smex-major-mode-commands)
   
   ;; This is your old M-x.
   (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+  
   )
 
 (global-set-key (kbd "C-x <up>") 'windmove-up)
@@ -308,10 +311,15 @@
 ;; (add-to-list 'package-archives
 ;;              '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 
-;; (package-initialize)
-;; (elpy-enable)
-
+(package-initialize)
+(load-file (expand-file-name "package-recover.el" user-emacs-directory))
+(setq package-file (expand-file-name "package.lst" user-emacs-directory))
+(recover-packages package-file)
 
 (put 'dired-find-alternate-file 'disabled nil)
 
-;(find-file "~/todo.org")			   
+;(find-file "~/todo.package")			   
+
+
+
+
