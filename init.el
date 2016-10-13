@@ -332,6 +332,9 @@
 
 (put 'dired-find-alternate-file 'disabled nil)
 
+(require 're-builder)
+(setq reb-re-syntax 'string)
+
 ;(find-file "~/todo.package")			   
 
 
