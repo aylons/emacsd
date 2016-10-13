@@ -14,14 +14,17 @@
 	 ("\\.mm\\'" . default)
 	 ("\\.x?html?\\'" . default)
 	 ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1"))))
- '(package-archives
-  (quote
-   (("gnu" . "http://elpa.gnu.org/packages/")
-    ("melpa-stable" . "https://stable.melpa.org/packages/")
-    ("marmalade" . "https://marmalade-repo.org/packages/"))))
  '(org-todo-keywords
    (quote
 	((sequence "TODO(t)" "DONE(d)" "WAITING(w)" "SOMEDAY(s)"))))
+ '(package-archives
+   (quote
+	(("gnu" . "http://elpa.gnu.org/packages/")
+	 ("melpa-stable" . "https://stable.melpa.org/packages/")
+	 ("marmalade" . "https://marmalade-repo.org/packages/"))))
+ '(package-selected-packages
+   (quote
+	(w3 cmake-mode vlf spotify speck smex markdown-mode with-editor git-commit async dash magit-popup magit company ivy swiper find-file-in-project highlight-indentation pyvenv yasnippet elpy auto-complete-octave)))
  '(py-shell-name "ipython3")
  '(vhdl-copyright-string
    "-------------------------------------------------------------------------------
