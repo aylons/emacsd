@@ -1,0 +1,577 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("class_undoredo_container.h" include (:system-flag t) nil [878 915])
+            ("class_board.h" include (:system-flag t) nil [916 940])
+            ("class_board_connected_item.h" include (:system-flag t) nil [941 980])
+            ("class_module.h" include (:system-flag t) nil [981 1006])
+            ("class_track.h" include (:system-flag t) nil [1007 1031])
+            ("board_commit.h" include (:system-flag t) nil [1032 1057])
+            ("ratsnest_data.h" include (:system-flag t) nil [1058 1084])
+            ("layers_id_colors_and_visibility.h" include (:system-flag t) nil [1085 1129])
+            ("geometry/convex_hull.h" include (:system-flag t) nil [1130 1163])
+            ("wxPcbStruct.h" include (:system-flag t) nil [1164 1188])
+            ("unordered_set" include (:system-flag t) nil [1190 1214])
+            ("unordered_map" include (:system-flag t) nil [1215 1239])
+            ("view/view.h" include (:system-flag t) nil [1241 1263])
+            ("view/view_item.h" include (:system-flag t) nil [1264 1291])
+            ("view/view_group.h" include (:system-flag t) nil [1292 1320])
+            ("gal/graphics_abstraction_layer.h" include (:system-flag t) nil [1321 1364])
+            ("pcb_painter.h" include (:system-flag t) nil [1366 1390])
+            ("geometry/shape.h" include (:system-flag t) nil [1392 1419])
+            ("geometry/shape_line_chain.h" include (:system-flag t) nil [1420 1458])
+            ("geometry/shape_rect.h" include (:system-flag t) nil [1459 1491])
+            ("geometry/shape_circle.h" include (:system-flag t) nil [1492 1526])
+            ("geometry/shape_convex.h" include (:system-flag t) nil [1527 1561])
+            ("geometry/convex_hull.h" include (:system-flag t) nil [1562 1595])
+            ("pns_kicad_iface.h" include nil nil [1598 1626])
+            ("pns_routing_settings.h" include nil nil [1627 1660])
+            ("pns_sizes_settings.h" include nil nil [1661 1692])
+            ("pns_item.h" include nil nil [1693 1714])
+            ("pns_solid.h" include nil nil [1715 1737])
+            ("pns_segment.h" include nil nil [1738 1762])
+            ("pns_solid.h" include nil nil [1763 1785])
+            ("pns_itemset.h" include nil nil [1786 1810])
+            ("pns_node.h" include nil nil [1811 1832])
+            ("pns_topology.h" include nil nil [1833 1858])
+            ("pns_router.h" include nil nil [1859 1882])
+            ("pns_debug_decorator.h" include nil nil [1883 1915])
+            ("router_preview_item.h" include nil nil [1916 1948])
+            ("PNS_PCBNEW_RULE_RESOLVER" type
+               (:superclasses 
+                  ( ("PNS::RULE_RESOLVER" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [2011 2018])
+                    ("PNS_PCBNEW_RULE_RESOLVER" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :arguments 
+                          ( ("aBoard" variable
+                               (:pointer 1
+                                :type ("BOARD" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2049 2063])
+                            ("aRouter" variable
+                               (:pointer 1
+                                :type ("PNS::ROUTER" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2064 2086]))                          
+                        :type ("PNS_PCBNEW_RULE_RESOLVER" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2023 2087])
+                    ("PNS_PCBNEW_RULE_RESOLVER" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [2092 2128])
+                    ("override" variable (:type "int") (reparse-symbol classsubparts) [2200 2209])
+                    ("override" variable (:type "int") (reparse-symbol classsubparts) [2311 2320])
+                    ("override" variable (:type "int") (reparse-symbol classsubparts) [2443 2452])
+                    ("override" variable (:type "int") (reparse-symbol classsubparts) [2495 2504])
+                    ("override" variable (:type "int") (reparse-symbol classsubparts) [2576 2585])
+                    ("private" label nil (reparse-symbol classsubparts) [2587 2595])
+                    ("CLEARANCE_ENT" type
+                       (:members 
+                          ( ("coupledNet" variable (:type "int") (reparse-symbol classsubparts) [2635 2650])
+                            ("clearance" variable (:type "int") (reparse-symbol classsubparts) [2659 2673]))                          
+                        :type "struct")
+                        (reparse-symbol classsubparts) [2600 2680])
+                    ("localPadClearance" function
+                       (:prototype-flag t
+                        :methodconst-flag t
+                        :arguments 
+                          ( ("aItem" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type ("PNS::ITEM" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2709 2733]))                          
+                        :type "int")
+                        (reparse-symbol classsubparts) [2686 2740])
+                    ("matchDpSuffix" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("aNetName" variable (:type ("wxString" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [2764 2782])
+                            ("aComplementNet" variable
+                               (:reference 1
+                                :type ("wxString" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2783 2808])
+                            ("aBaseDpName" variable
+                               (:reference 1
+                                :type ("wxString" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2809 2832]))                          
+                        :type "int")
+                        (reparse-symbol classsubparts) [2745 2833])
+                    ("m_router" variable
+                       (:pointer 1
+                        :type ("PNS::ROUTER" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2839 2861])
+                    ("m_board" variable
+                       (:pointer 1
+                        :type ("BOARD" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2866 2887])
+                    ("m_netClearanceCache" variable (:type ("std::vector" type
+                         (:template-specifier 
+                            ( ("CLEARANCE_ENT" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [2893 2940])
+                    ("m_localClearanceCache" variable (:type ("std::unordered_map" type
+                         (:template-specifier 
+                            ( ("D_PAD" type
+                                 (:pointer 1
+                                  :constant-flag t)
+                                  nil nil)
+                              ("int" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [2945 3005])
+                    ("m_defaultClearance" variable (:type "int") (reparse-symbol classsubparts) [3010 3033])
+                    ("m_overrideEnabled" variable (:type "bool") (reparse-symbol classsubparts) [3038 3061])
+                    ("m_overrideNetA" variable (:type "int") (reparse-symbol classsubparts) [3066 3101])
+                    ("m_overrideNetB" variable (:type "int") (reparse-symbol classsubparts) [3066 3101])
+                    ("m_overrideClearance" variable (:type "int") (reparse-symbol classsubparts) [3106 3130])
+                    ("m_useDpGap" variable (:type "bool") (reparse-symbol classsubparts) [3135 3151]))                  
+                :type "class")
+                nil [1950 3154])
+            ("PNS_PCBNEW_RULE_RESOLVER" function
+               (:constructor-flag t
+                :parent "PNS_PCBNEW_RULE_RESOLVER"
+                :arguments 
+                  ( ("aBoard" variable
+                       (:pointer 1
+                        :type ("BOARD" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3209 3223])
+                    ("aRouter" variable
+                       (:pointer 1
+                        :type ("PNS::ROUTER" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3224 3246]))                  
+                :type ("PNS_PCBNEW_RULE_RESOLVER" type (:type "class") nil nil))
+                nil [3157 4886])
+            ("PNS_PCBNEW_RULE_RESOLVER" function
+               (:destructor-flag t
+                :parent "PNS_PCBNEW_RULE_RESOLVER"
+                :type "void")
+                nil [4889 4946])
+            ("localPadClearance" function
+               (:methodconst-flag t
+                :parent "PNS_PCBNEW_RULE_RESOLVER"
+                :arguments 
+                  ( ("aItem" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("PNS::ITEM" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4998 5022]))                  
+                :type "int")
+                nil [4949 5315])
+            ("Clearance" function
+               (:parent "PNS_PCBNEW_RULE_RESOLVER"
+                :arguments 
+                  ( ("aA" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("PNS::ITEM" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5359 5379])
+                    ("aB" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("PNS::ITEM" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5380 5401]))                  
+                :type "int")
+                nil [5318 6188])
+            ("OverrideClearance" function
+               (:parent "PNS_PCBNEW_RULE_RESOLVER"
+                :arguments 
+                  ( ("aEnable" variable (:type "bool") (reparse-symbol arg-sub-list) [6341 6354])
+                    ("aNetA" variable (:type "int") (reparse-symbol arg-sub-list) [6355 6365])
+                    ("aNetB" variable (:type "int") (reparse-symbol arg-sub-list) [6366 6377])
+                    ("aClearance" variable (:type "int") (reparse-symbol arg-sub-list) [6378 6394]))                  
+                :type "void")
+                nil [6291 6525])
+            ("matchDpSuffix" function
+               (:parent "PNS_PCBNEW_RULE_RESOLVER"
+                :arguments 
+                  ( ("aNetName" variable (:type ("wxString" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [6573 6591])
+                    ("aComplementNet" variable
+                       (:reference 1
+                        :type ("wxString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6592 6617])
+                    ("aBaseDpName" variable
+                       (:reference 1
+                        :type ("wxString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6618 6641]))                  
+                :type "int")
+                nil [6528 7241])
+            ("DpCoupledNet" function
+               (:parent "PNS_PCBNEW_RULE_RESOLVER"
+                :arguments 
+                  ( ("aNet" variable (:type "int") (reparse-symbol arg-sub-list) [7288 7298]))                  
+                :type "int")
+                nil [7244 7626])
+            ("DpNetPolarity" function
+               (:parent "PNS_PCBNEW_RULE_RESOLVER"
+                :arguments 
+                  ( ("aNet" variable (:type "int") (reparse-symbol arg-sub-list) [7674 7684]))                  
+                :type "int")
+                nil [7629 7834])
+            ("DpNetPair" function
+               (:parent "PNS_PCBNEW_RULE_RESOLVER"
+                :arguments 
+                  ( ("aItem" variable
+                       (:pointer 1
+                        :type ("PNS::ITEM" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7879 7896])
+                    ("aNetP" variable
+                       (:reference 1
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [7897 7908])
+                    ("aNetN" variable
+                       (:reference 1
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [7909 7921]))                  
+                :type "bool")
+                nil [7837 8865])
+            ("PNS_PCBNEW_DEBUG_DECORATOR" type
+               (:superclasses 
+                  ( ("PNS::DEBUG_DECORATOR" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [8932 8939])
+                    ("PNS_PCBNEW_DEBUG_DECORATOR" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("aView" variable
+                               (:pointer 1
+                                :default-value "NULL"
+                                :type ("KIGFX::VIEW" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [8972 8997]))                          
+                        :type ("PNS_PCBNEW_DEBUG_DECORATOR" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [8944 9102])
+                    ("PNS_PCBNEW_DEBUG_DECORATOR" function
+                       (:destructor-flag t
+                        :type "void")
+                        (reparse-symbol classsubparts) [9108 9190])
+                    ("SetView" function
+                       (:arguments 
+                          ( ("aView" variable
+                               (:pointer 1
+                                :type ("KIGFX::VIEW" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [9210 9230]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [9196 9565])
+                    ("private" label nil (reparse-symbol classsubparts) [11627 11635])
+                    ("m_view" variable
+                       (:pointer 1
+                        :type ("KIGFX::VIEW" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [11640 11660])
+                    ("m_items" variable
+                       (:pointer 1
+                        :type ("KIGFX::VIEW_GROUP" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [11665 11692]))                  
+                :type "class")
+                nil [8868 11695])
+            ("GetDebugDecorator" function
+               (:pointer 1
+                :parent "PNS_KICAD_IFACE"
+                :type ("PNS::DEBUG_DECORATOR" type (:type "class") nil nil))
+                nil [11698 11789])
+            ("PNS_KICAD_IFACE" function
+               (:constructor-flag t
+                :parent "PNS_KICAD_IFACE"
+                :type ("PNS_KICAD_IFACE" type (:type "class") nil nil))
+                nil [11792 12037])
+            ("PNS_KICAD_IFACE" function
+               (:destructor-flag t
+                :parent "PNS_KICAD_IFACE"
+                :type "void")
+                nil [12040 12241])
+            ("syncPad" function
+               (:parent "PNS_KICAD_IFACE"
+                :arguments 
+                  ( ("aPad" variable
+                       (:pointer 1
+                        :type ("D_PAD" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12300 12313]))                  
+                :type ("std::unique_ptr" type
+                     (:template-specifier 
+                        ( ("PNS::SOLID" type nil nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [12244 19715])
+            ("syncTrack" function
+               (:parent "PNS_KICAD_IFACE"
+                :arguments 
+                  ( ("aTrack" variable
+                       (:pointer 1
+                        :type ("TRACK" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [19778 19793]))                  
+                :type ("std::unique_ptr" type
+                     (:template-specifier 
+                        ( ("PNS::SEGMENT" type nil nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [19718 20184])
+            ("syncVia" function
+               (:parent "PNS_KICAD_IFACE"
+                :arguments 
+                  ( ("aVia" variable
+                       (:pointer 1
+                        :type ("VIA" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [20241 20252]))                  
+                :type ("std::unique_ptr" type
+                     (:template-specifier 
+                        ( ("PNS::VIA" type nil nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [20187 20698])
+            ("SetBoard" function
+               (:parent "PNS_KICAD_IFACE"
+                :arguments 
+                  ( ("aBoard" variable
+                       (:pointer 1
+                        :type ("BOARD" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [20733 20748]))                  
+                :type "void")
+                nil [20701 20824])
+            ("SyncWorld" function
+               (:parent "PNS_KICAD_IFACE"
+                :arguments 
+                  ( ("aWorld" variable
+                       (:pointer 1
+                        :type ("PNS::NODE" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [20860 20879]))                  
+                :type "void")
+                nil [20827 22125])
+            ("EraseView" function
+               (:parent "PNS_KICAD_IFACE"
+                :type "void")
+                nil [22128 22472])
+            ("DisplayItem" function
+               (:parent "PNS_KICAD_IFACE"
+                :arguments 
+                  ( ("aItem" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("PNS::ITEM" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [22510 22533])
+                    ("aColor" variable (:type "int") (reparse-symbol arg-sub-list) [22534 22545])
+                    ("aClearance" variable (:type "int") (reparse-symbol arg-sub-list) [22546 22562]))                  
+                :type "void")
+                nil [22475 23010])
+            ("HideItem" function
+               (:parent "PNS_KICAD_IFACE"
+                :arguments 
+                  ( ("aItem" variable
+                       (:pointer 1
+                        :type ("PNS::ITEM" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [23045 23063]))                  
+                :type "void")
+                nil [23013 23333])
+            ("RemoveItem" function
+               (:parent "PNS_KICAD_IFACE"
+                :arguments 
+                  ( ("aItem" variable
+                       (:pointer 1
+                        :type ("PNS::ITEM" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [23370 23388]))                  
+                :type "void")
+                nil [23336 23510])
+            ("AddItem" function
+               (:parent "PNS_KICAD_IFACE"
+                :arguments 
+                  ( ("aItem" variable
+                       (:pointer 1
+                        :type ("PNS::ITEM" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [23544 23562]))                  
+                :type "void")
+                nil [23513 24935])
+            ("Commit" function
+               (:parent "PNS_KICAD_IFACE"
+                :type "void")
+                nil [24938 25070])
+            ("SetView" function
+               (:parent "PNS_KICAD_IFACE"
+                :arguments 
+                  ( ("aView" variable
+                       (:pointer 1
+                        :type ("KIGFX::VIEW" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25104 25124]))                  
+                :type "void")
+                nil [25073 25624])
+            ("UpdateNet" function
+               (:parent "PNS_KICAD_IFACE"
+                :arguments 
+                  ( ("aNetCode" variable (:type "int") (reparse-symbol arg-sub-list) [25660 25674]))                  
+                :type "void")
+                nil [25627 25730])
+            ("GetRuleResolver" function
+               (:pointer 1
+                :parent "PNS_KICAD_IFACE"
+                :type ("PNS::RULE_RESOLVER" type (:type "class") nil nil))
+                nil [25732 25817])
+            ("SetRouter" function
+               (:parent "PNS_KICAD_IFACE"
+                :arguments 
+                  ( ("aRouter" variable
+                       (:pointer 1
+                        :type ("PNS::ROUTER" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25852 25874]))                  
+                :type "void")
+                nil [25819 25902])
+            ("SetHostFrame" function
+               (:parent "PNS_KICAD_IFACE"
+                :arguments 
+                  ( ("aFrame" variable
+                       (:pointer 1
+                        :type ("PCB_EDIT_FRAME" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [25941 25965]))                  
+                :type "void")
+                nil [25905 26044]))          
+      :file "pns_kicad_iface.cpp"
+      :pointmax 26045
+      :fsize 26044
+      :lastmodtime '(22569 8324 801093 14000)
+      :unmatched-syntax '((semantic-list 11469 . 11625) (symbol 11456 . 11464) (semantic-list 11453 . 11455) (symbol 11448 . 11453) (VOID 11443 . 11447) (semantic-list 11065 . 11437) (symbol 11052 . 11060) (semantic-list 10995 . 11051) (symbol 10988 . 10995) (VOID 10983 . 10987) (semantic-list 10588 . 10977) (symbol 10575 . 10583) (semantic-list 10536 . 10574) (symbol 10523 . 10536) (VOID 10518 . 10522) (semantic-list 10386 . 10512) (symbol 10373 . 10381) (semantic-list 10350 . 10372) (symbol 10340 . 10350) (VOID 10335 . 10339) (semantic-list 10022 . 10329) (symbol 10009 . 10017) (semantic-list 9984 . 10008) (symbol 9978 . 9984) (VOID 9973 . 9977) (semantic-list 9625 . 9967) (symbol 9612 . 9620) (semantic-list 9584 . 9611) (symbol 9576 . 9584) (VOID 9571 . 9575) (semantic-list 2531 . 2575) (symbol 2522 . 2531) (BOOL 2517 . 2521) (VIRTUAL 2509 . 2516) (semantic-list 2482 . 2494) (symbol 2469 . 2482) (INT 2465 . 2468) (VIRTUAL 2457 . 2464) (semantic-list 2430 . 2442) (symbol 2418 . 2430) (INT 2414 . 2417) (VIRTUAL 2406 . 2413) (semantic-list 2374 . 2401) (symbol 2365 . 2373) (semantic-list 2346 . 2364) (symbol 2338 . 2346) (VOID 2333 . 2337) (VIRTUAL 2325 . 2332) (semantic-list 2244 . 2310) (symbol 2227 . 2244) (VOID 2222 . 2226) (VIRTUAL 2214 . 2221) (semantic-list 2155 . 2199) (symbol 2146 . 2155) (INT 2142 . 2145) (VIRTUAL 2134 . 2141)))
+    (semanticdb-table "semanticdb-table"
+      :file "pns_kicad_iface.h"
+      :fsize 2518
+      :lastmodtime '(22569 8324 801093 14000))
+    (semanticdb-table "semanticdb-table"
+      :file "pns_routing_settings.h"
+      :fsize 5368
+      :lastmodtime '(22480 37838 930511 163000))
+    (semanticdb-table "semanticdb-table"
+      :file "pns_sizes_settings.h"
+      :fsize 3440
+      :lastmodtime '(22480 37838 930511 163000))
+    (semanticdb-table "semanticdb-table"
+      :file "pns_item.h"
+      :fsize 8716
+      :lastmodtime '(22480 37838 930511 163000))
+    (semanticdb-table "semanticdb-table"
+      :file "pns_solid.h"
+      :fsize 2394
+      :lastmodtime '(22569 8324 801093 14000))
+    (semanticdb-table "semanticdb-table"
+      :file "pns_segment.h"
+      :fsize 3014
+      :lastmodtime '(22569 8324 801093 14000))
+    (semanticdb-table "semanticdb-table"
+      :file "pns_itemset.h"
+      :fsize 5050
+      :lastmodtime '(22480 37838 930511 163000))
+    (semanticdb-table "semanticdb-table"
+      :file "pns_node.h"
+      :fsize 15499
+      :lastmodtime '(22480 37838 930511 163000))
+    (semanticdb-table "semanticdb-table"
+      :file "pns_topology.h"
+      :fsize 2232
+      :lastmodtime '(22480 37838 934511 117000))
+    (semanticdb-table "semanticdb-table"
+      :file "pns_router.h"
+      :fsize 6597
+      :lastmodtime '(22569 8324 801093 14000))
+    (semanticdb-table "semanticdb-table"
+      :file "pns_debug_decorator.h"
+      :fsize 1539
+      :lastmodtime '(22480 37838 930511 163000))
+    (semanticdb-table "semanticdb-table"
+      :file "router_preview_item.h"
+      :fsize 3235
+      :lastmodtime '(22569 8324 801093 14000))
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("__PNS_ALGO_BASE_H" variable (:constant-flag t) nil [912 929])
+            ("pns_routing_settings.h" include nil nil [931 964])
+            ("PNS" type
+               (:members 
+                  ( ("ROUTER" type
+                       (:prototype t
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [983 996])
+                    ("LOGGER" type
+                       (:prototype t
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [997 1010])
+                    ("DEBUG_DECORATOR" type
+                       (:prototype t
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [1011 1033])
+                    ("ALGO_BASE" type
+                       (:members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [1282 1289])
+                            ("ALGO_BASE" function
+                               (:constructor-flag t
+                                :arguments 
+                                  ( ("aRouter" variable
+                                       (:pointer 1
+                                        :type ("ROUTER" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [1305 1322]))                                  
+                                :type ("ALGO_BASE" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [1294 1359])
+                            ("ALGO_BASE" function
+                               (:destructor-flag t
+                                :typemodifiers ("virtual")
+                                :type "void")
+                                (reparse-symbol classsubparts) [1365 1388])
+                            ("Router" function
+                               (:methodconst-flag t
+                                :pointer 1
+                                :type ("ROUTER" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [1438 1497])
+                            ("Settings" function
+                               (:prototype-flag t
+                                :methodconst-flag t
+                                :type ("ROUTING_SETTINGS" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [1544 1579])
+                            ("Logger" function
+                               (:prototype-flag t
+                                :pointer 1
+                                :typemodifiers ("virtual")
+                                :type ("LOGGER" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [1658 1683])
+                            ("SetDebugDecorator" function
+                               (:arguments 
+                                  ( ("aDecorator" variable
+                                       (:pointer 1
+                                        :type ("DEBUG_DECORATOR" type (:type "class") nil nil))
+                                        (reparse-symbol arg-sub-list) [1861 1890]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [1837 1941])
+                            ("Dbg" function
+                               (:methodconst-flag t
+                                :pointer 1
+                                :type ("DEBUG_DECORATOR" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [1947 2020])
+                            ("private" label nil (reparse-symbol classsubparts) [2022 2030])
+                            ("m_debugDecorator" variable
+                               (:pointer 1
+                                :type ("DEBUG_DECORATOR" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [2035 2069])
+                            ("m_router" variable
+                               (:pointer 1
+                                :type ("ROUTER" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [2074 2091]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [1264 2094]))                  
+                :type "namespace")
+                nil [966 2097]))          
+      :file "pns_algo_base.h"
+      :pointmax 2106
+      :fsize 2105
+      :lastmodtime '(22480 37838 930511 163000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("__PNS_ALGO_BASE_H")
+          )
+))
+  :file "!home!aylons!git!kicad!pcbnew!router!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

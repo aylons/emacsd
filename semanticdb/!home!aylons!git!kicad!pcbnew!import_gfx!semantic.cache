@@ -1,0 +1,1618 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("svg_import_plugin.h" include nil nil [1048 1078])
+            ("wx/gdicmn.h" include (:system-flag t) nil [1080 1102])
+            ("math/vector2d.h" include (:system-flag t) nil [1103 1129])
+            ("convert_to_biu.h" include nil nil [1131 1158])
+            ("graphics_importer.h" include nil nil [1159 1189])
+            ("getBezierPoint" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("aCurvePoints" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "float")
+                        (reparse-symbol arg-sub-list) [1223 1249])
+                    ("aStep" variable (:type "float") (reparse-symbol arg-sub-list) [1250 1263]))                  
+                :type ("VECTOR2D" type (:type "class") nil nil))
+                nil [1191 1264])
+            ("getPoint" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("aPointCoordinates" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "float")
+                        (reparse-symbol arg-sub-list) [1291 1323]))                  
+                :type ("VECTOR2D" type (:type "class") nil nil))
+                nil [1265 1324])
+            ("getPointInLine" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("aLineStart" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("VECTOR2D" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1357 1384])
+                    ("aLineEnd" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("VECTOR2D" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1385 1410])
+                    ("aDistance" variable (:type "float") (reparse-symbol arg-sub-list) [1419 1436]))                  
+                :type ("VECTOR2D" type (:type "class") nil nil))
+                nil [1325 1437])
+            ("Load" function
+               (:parent "SVG_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aFileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("wxString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1469 1496]))                  
+                :type "bool")
+                nil [1439 1680])
+            ("Import" function
+               (:parent "SVG_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aXScale" variable (:type "float") (reparse-symbol arg-sub-list) [1713 1727])
+                    ("aYScale" variable (:type "float") (reparse-symbol arg-sub-list) [1728 1742]))                  
+                :type "bool")
+                nil [1682 2136])
+            ("DrawPath" function
+               (:parent "SVG_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aPoints" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "float")
+                        (reparse-symbol arg-sub-list) [2172 2193])
+                    ("aNumPoints" variable (:type "int") (reparse-symbol arg-sub-list) [2194 2209])
+                    ("aClosedPath" variable (:type "bool") (reparse-symbol arg-sub-list) [2210 2228]))                  
+                :type "void")
+                nil [2138 2837])
+            ("DrawCubicBezierPath" function
+               (:parent "SVG_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aPoints" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "float")
+                        (reparse-symbol arg-sub-list) [2885 2906])
+                    ("aNumPoints" variable (:type "int") (reparse-symbol arg-sub-list) [2907 2922])
+                    ("aGeneratedPoints" variable
+                       (:reference 1
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("VECTOR2D" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2968 3011]))                  
+                :type "void")
+                nil [2840 3329])
+            ("DrawCubicBezierCurve" function
+               (:parent "SVG_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aPoints" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "float")
+                        (reparse-symbol arg-sub-list) [3378 3399])
+                    ("aGeneratedPoints" variable
+                       (:reference 1
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("VECTOR2D" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3446 3489]))                  
+                :type "void")
+                nil [3332 3676])
+            ("DrawLinePath" function
+               (:parent "SVG_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aPoints" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "float")
+                        (reparse-symbol arg-sub-list) [3717 3738])
+                    ("aNumPoints" variable (:type "int") (reparse-symbol arg-sub-list) [3739 3754])
+                    ("aGeneratedPoints" variable
+                       (:reference 1
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("VECTOR2D" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [3793 3836]))                  
+                :type "void")
+                nil [3679 4165])
+            ("DrawPolygon" function
+               (:parent "SVG_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aPoints" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("VECTOR2D" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4205 4245]))                  
+                :type "void")
+                nil [4168 4288])
+            ("DrawLineSegments" function
+               (:parent "SVG_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aPoints" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("VECTOR2D" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4333 4373]))                  
+                :type "void")
+                nil [4291 4603])
+            ("getPoint" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("aPointCoordinates" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "float")
+                        (reparse-symbol arg-sub-list) [4632 4664]))                  
+                :type ("VECTOR2D" type (:type "class") nil nil))
+                nil [4606 4735])
+            ("getBezierPoint" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("aPoints" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "float")
+                        (reparse-symbol arg-sub-list) [4770 4791])
+                    ("aStep" variable (:type "float") (reparse-symbol arg-sub-list) [4792 4805]))                  
+                :type ("VECTOR2D" type (:type "class") nil nil))
+                nil [4738 5664])
+            ("getPointInLine" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("aLineStart" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("VECTOR2D" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5699 5726])
+                    ("aLineEnd" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("VECTOR2D" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5727 5752])
+                    ("aDistance" variable (:type "float") (reparse-symbol arg-sub-list) [5761 5778]))                  
+                :type ("VECTOR2D" type (:type "class") nil nil))
+                nil [5667 5845]))          
+      :file "svg_import_plugin.cpp"
+      :pointmax 5846
+      :fsize 5845
+      :lastmodtime '(22590 9323 136342 585000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("graphics_importer_pcbnew.h" include nil nil [1065 1102])
+            ("class_board.h" include (:system-flag t) nil [1104 1128])
+            ("class_edge_mod.h" include (:system-flag t) nil [1129 1156])
+            ("class_pcb_text.h" include (:system-flag t) nil [1157 1184])
+            ("class_text_mod.h" include (:system-flag t) nil [1185 1212])
+            ("tuple" include (:system-flag t) nil [1213 1229])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [1231 1251])
+            ("convertPoints" function
+               (:prototype-flag t
+                :typemodifiers ("static")
+                :arguments 
+                  ( ("aPoints" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("VECTOR2D" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [1296 1333])
+                    ("aScaleFactor" variable (:type "double") (reparse-symbol arg-sub-list) [1342 1363]))                  
+                :type ("std::vector" type
+                     (:template-specifier 
+                        ( ("wxPoint" type nil nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [1253 1364])
+            ("Round" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("aVec" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("VECTOR2D" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1389 1411]))                  
+                :type ("wxPoint" type (:type "class") nil nil))
+                nil [1367 1465])
+            ("AddLine" function
+               (:parent "GRAPHICS_IMPORTER_PCBNEW"
+                :arguments 
+                  ( ("aOrigin" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("VECTOR2D" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1508 1532])
+                    ("aEnd" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("VECTOR2D" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1533 1555]))                  
+                :type "void")
+                nil [1468 1854])
+            ("AddCircle" function
+               (:parent "GRAPHICS_IMPORTER_PCBNEW"
+                :arguments 
+                  ( ("aCenter" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("VECTOR2D" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1899 1923])
+                    ("aRadius" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [1924 1946]))                  
+                :type "void")
+                nil [1857 2302])
+            ("AddArc" function
+               (:parent "GRAPHICS_IMPORTER_PCBNEW"
+                :arguments 
+                  ( ("aCenter" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("VECTOR2D" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2344 2368])
+                    ("aStart" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("VECTOR2D" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2369 2392])
+                    ("aAngle" variable (:type "double") (reparse-symbol arg-sub-list) [2393 2408]))                  
+                :type "void")
+                nil [2305 2733])
+            ("AddPolygon" function
+               (:parent "GRAPHICS_IMPORTER_PCBNEW"
+                :arguments 
+                  ( ("aVertices" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("VECTOR2D" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [2779 2821]))                  
+                :type "void")
+                nil [2736 3127])
+            ("AddText" function
+               (:parent "GRAPHICS_IMPORTER_PCBNEW"
+                :arguments 
+                  ( ("aOrigin" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("VECTOR2D" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3170 3194])
+                    ("aText" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("wxString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3195 3217])
+                    ("aHeight" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [3226 3247])
+                    ("aWidth" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [3248 3264])
+                    ("aOrientation" variable (:type "double") (reparse-symbol arg-sub-list) [3265 3285])
+                    ("aHJustify" variable (:type ("EDA_TEXT_HJUSTIFY_T" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3294 3324])
+                    ("aVJustify" variable (:type ("EDA_TEXT_VJUSTIFY_T" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [3325 3356]))                  
+                :type "void")
+                nil [3130 3935])
+            ("createDrawing" function
+               (:parent "GRAPHICS_IMPORTER_BOARD"
+                :type ("unique_ptr" type
+                     (:template-specifier 
+                        ( ("DRAWSEGMENT" type nil nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [3938 4072])
+            ("createText" function
+               (:parent "GRAPHICS_IMPORTER_BOARD"
+                :type ("pair" type
+                     (:template-specifier 
+                        ( ("unique_ptr" type (:template-specifier 
+                            ( ("BOARD_ITEM" type nil nil nil))                            ) nil nil)
+                          ("EDA_TEXT" type (:pointer 1) nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [4075 4292])
+            ("createDrawing" function
+               (:parent "GRAPHICS_IMPORTER_MODULE"
+                :type ("unique_ptr" type
+                     (:template-specifier 
+                        ( ("DRAWSEGMENT" type nil nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [4295 4431])
+            ("createText" function
+               (:parent "GRAPHICS_IMPORTER_MODULE"
+                :type ("pair" type
+                     (:template-specifier 
+                        ( ("unique_ptr" type (:template-specifier 
+                            ( ("BOARD_ITEM" type nil nil nil))                            ) nil nil)
+                          ("EDA_TEXT" type (:pointer 1) nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [4434 4659])
+            ("convertPoints" function
+               (:typemodifiers ("static")
+                :arguments 
+                  ( ("aPoints" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("VECTOR2D" type nil nil nil))                                
+                              :type "class")
+                              nil nil))
+                        (reparse-symbol arg-sub-list) [4707 4744])
+                    ("aScaleFactor" variable (:type "double") (reparse-symbol arg-sub-list) [4753 4774]))                  
+                :type ("std::vector" type
+                     (:template-specifier 
+                        ( ("wxPoint" type nil nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [4662 5126]))          
+      :file "graphics_importer_pcbnew.cpp"
+      :pointmax 5127
+      :fsize 5126
+      :lastmodtime '(22579 41265 452053 325000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("graphics_importer.h" include nil nil [1065 1095])
+            ("graphics_import_plugin.h" include nil nil [1096 1131])
+            ("GRAPHICS_IMPORTER" function
+               (:constructor-flag t
+                :parent "GRAPHICS_IMPORTER"
+                :type ("GRAPHICS_IMPORTER" type (:type "class") nil nil))
+                nil [1133 1231])
+            ("Load" function
+               (:parent "GRAPHICS_IMPORTER"
+                :arguments 
+                  ( ("aFileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("wxString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1264 1291]))                  
+                :type "bool")
+                nil [1234 1499])
+            ("Import" function
+               (:parent "GRAPHICS_IMPORTER"
+                :arguments 
+                  ( ("aXScale" variable (:type "float") (reparse-symbol arg-sub-list) [1533 1547])
+                    ("aYScale" variable (:type "float") (reparse-symbol arg-sub-list) [1548 1562]))                  
+                :type "bool")
+                nil [1501 1597]))          
+      :file "graphics_importer.cpp"
+      :pointmax 1598
+      :fsize 1597
+      :lastmodtime '(22590 10753 98576 422000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("GRAPHICS_IMPORT_PLUGIN_H" variable (:constant-flag t) nil [1106 1130])
+            ("wx/arrstr.h" include (:system-flag t) nil [1132 1154])
+            ("nanosvg.h" include nil nil [1155 1175])
+            ("GRAPHICS_IMPORTER" type
+               (:prototype t
+                :type "class")
+                nil [1177 1201])
+            ("GRAPHICS_IMPORT_PLUGIN" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [1298 1305])
+                    ("GRAPHICS_IMPORT_PLUGIN" function
+                       (:destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [1310 1355])
+                    ("SetImporter" function
+                       (:arguments 
+                          ( ("aImporter" variable
+                               (:pointer 1
+                                :type ("GRAPHICS_IMPORTER" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1451 1481]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1433 1525])
+                    ("GetName" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :methodconst-flag t
+                        :typemodifiers ("virtual")
+                        :constant-flag t
+                        :type ("wxString" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1664 1707])
+                    ("GetFileExtensions" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :methodconst-flag t
+                        :typemodifiers ("virtual")
+                        :constant-flag t
+                        :type ("wxArrayString" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1813 1871])
+                    ("GetWildcards" function
+                       (:methodconst-flag t
+                        :type ("wxString" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [2023 2353])
+                    ("Load" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("aFileName" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("wxString" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2510 2537]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [2491 2542])
+                    ("GetImageHeight" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :methodconst-flag t
+                        :typemodifiers ("virtual")
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [2690 2737])
+                    ("GetImageWidth" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :methodconst-flag t
+                        :typemodifiers ("virtual")
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [2883 2929])
+                    ("Import" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("aXScale" variable (:type "float") (reparse-symbol arg-sub-list) [3078 3092])
+                            ("aYScale" variable (:type "float") (reparse-symbol arg-sub-list) [3093 3108]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [3058 3113])
+                    ("protected" label nil (reparse-symbol classsubparts) [3116 3126])
+                    ("m_importer" variable
+                       (:pointer 1
+                        :type ("GRAPHICS_IMPORTER" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [3206 3236]))                  
+                :type "class")
+                nil [1267 3239]))          
+      :file "graphics_import_plugin.h"
+      :pointmax 3281
+      :fsize 3280
+      :lastmodtime '(22590 8555 18273 829000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("GRAPHICS_IMPORT_PLUGIN_H")
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("DXF_IMPORT_PLUGIN_H" variable
+               (:constant-flag t
+                :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                nil [1275 1294])
+            ("graphics_import_plugin.h" include (:truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h") nil [1296 1331])
+            ("drw_interface.h" include (:truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h") nil [1332 1358])
+            ("wxRealPoint" type
+               (:prototype t
+                :type "class"
+                :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                nil [1360 1378])
+            ("DXF_IMPORT_PLUGIN" type
+               (:superclasses 
+                  ( ("GRAPHICS_IMPORT_PLUGIN" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil)
+                    ("DRW_Interface" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label
+                       (:depth 1
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [1460 1467])
+                    ("DXF_IMPORT_PLUGIN" function
+                       (:depth 1
+                        :prototype-flag t
+                        :constructor-flag t
+                        :type ("DXF_IMPORT_PLUGIN" type (:type "class") nil nil)
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [1472 1492])
+                    ("override" variable
+                       (:depth 1
+                        :type "int"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [1742 1751])
+                    ("private" label
+                       (:depth 1
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [1753 1761])
+                    ("mapX" function
+                       (:depth 1
+                        :prototype-flag t
+                        :arguments 
+                          ( ("aDxfCoordX" variable (:type "double") (reparse-symbol arg-sub-list) [1833 1852]))                          
+                        :type "int"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [1823 1853])
+                    ("mapY" function
+                       (:depth 1
+                        :prototype-flag t
+                        :arguments 
+                          ( ("aDxfCoordY" variable (:type "double") (reparse-symbol arg-sub-list) [1868 1887]))                          
+                        :type "int"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [1858 1888])
+                    ("mapDim" function
+                       (:depth 1
+                        :prototype-flag t
+                        :arguments 
+                          ( ("aDxfValue" variable (:type "double") (reparse-symbol arg-sub-list) [1905 1923]))                          
+                        :type "int"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [1893 1924])
+                    ("insertLine" function
+                       (:depth 1
+                        :prototype-flag t
+                        :arguments 
+                          ( ("aSegStart" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("wxRealPoint" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2003 2032])
+                            ("aSegEnd" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("wxRealPoint" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2033 2061]))                          
+                        :type "void"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [1986 2062])
+                    ("insertArc" function
+                       (:depth 1
+                        :prototype-flag t
+                        :arguments 
+                          ( ("aSegStart" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("wxRealPoint" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2083 2112])
+                            ("aSegEnd" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("wxRealPoint" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2113 2140])
+                            ("aBulge" variable (:type "double") (reparse-symbol arg-sub-list) [2141 2156]))                          
+                        :type "void"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [2067 2157])
+                    ("override" variable
+                       (:depth 1
+                        :type "int"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [2351 2360])
+                    ("override" variable
+                       (:depth 1
+                        :type "int"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [2402 2411])
+                    ("override" variable
+                       (:depth 1
+                        :type "int"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [2458 2467])
+                    ("override" variable
+                       (:depth 1
+                        :type "int"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [2508 2517])
+                    ("override" variable
+                       (:depth 1
+                        :type "int"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [2572 2581])
+                    ("override" variable
+                       (:depth 1
+                        :type "int"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [2632 2641])
+                    ("override" variable
+                       (:depth 1
+                        :type "int"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [2684 2693])
+                    ("override" variable
+                       (:depth 1
+                        :type "int"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [2737 2746])
+                    ("toDxfString" function
+                       (:depth 1
+                        :prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("aStr" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("wxString" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3035 3057]))                          
+                        :type ("wxString" type (:type "class") nil nil)
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [3006 3058])
+                    ("toNativeString" function
+                       (:depth 1
+                        :prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("aData" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("wxString" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3179 3202]))                          
+                        :type ("wxString" type (:type "class") nil nil)
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [3147 3203])
+                    ("writeLine" function
+                       (:depth 1
+                        :prototype-flag t
+                        :type "void"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [3209 3226])
+                    ("writeMtext" function
+                       (:depth 1
+                        :prototype-flag t
+                        :type "void"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [3231 3249])
+                    ("m_DXF2mm" variable
+                       (:depth 1
+                        :type "double"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                        (reparse-symbol classsubparts) [3255 3271]))                  
+                :type "class"
+                :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/dxf_import_plugin.h")
+                nil [1380 5692]))          
+      :file "dxf_import_plugin.h"
+      :pointmax 5727
+      :fsize 5726
+      :lastmodtime '(22579 39157 711676 138000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("GRAPHICS_IMPORT_MGR_H" variable
+               (:constant-flag t
+                :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_import_mgr.h")
+                nil [1103 1124])
+            ("memory" include
+               (:system-flag t
+                :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_import_mgr.h")
+                nil [1126 1143])
+            ("vector" include
+               (:system-flag t
+                :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_import_mgr.h")
+                nil [1144 1161])
+            ("GRAPHICS_IMPORT_PLUGIN" type
+               (:prototype t
+                :type "class"
+                :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_import_mgr.h")
+                nil [1163 1192])
+            ("wxString" type
+               (:prototype t
+                :type "class"
+                :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_import_mgr.h")
+                nil [1193 1208])
+            ("GRAPHICS_IMPORT_MGR" type
+               (:members 
+                  ( ("public" label
+                       (:depth 1
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_import_mgr.h")
+                        (reparse-symbol classsubparts) [1299 1306])
+                    ("GFX_FILE_T" type
+                       (:depth 1
+                        :members 
+                          ( ("DXF" variable
+                               (:depth 2
+                                :constant-flag t
+                                :type "int"
+                                :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_import_mgr.h")
+                                (reparse-symbol enumsubparts) [1374 1378])
+                            ("SVG" variable
+                               (:depth 2
+                                :constant-flag t
+                                :type "int"
+                                :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_import_mgr.h")
+                                (reparse-symbol enumsubparts) [1387 1396]))                          
+                        :type "enum"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_import_mgr.h")
+                        (reparse-symbol classsubparts) [1348 1397])
+                    ("GFX_FILE_TYPES" variable
+                       (:depth 1
+                        :typemodifiers ("static")
+                        :constant-flag t
+                        :type ("std::vector" type
+                             (:template-specifier 
+                                ( ("GFX_FILE_T" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_import_mgr.h")
+                        (reparse-symbol classsubparts) [1453 1505])
+                    ("GetPluginByExt" function
+                       (:depth 1
+                        :prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("aExtension" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("wxString" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1640 1668]))                          
+                        :type ("std::unique_ptr" type
+                             (:template-specifier 
+                                ( ("GRAPHICS_IMPORT_PLUGIN" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_import_mgr.h")
+                        (reparse-symbol classsubparts) [1577 1669])
+                    ("GetPlugin" function
+                       (:depth 1
+                        :prototype-flag t
+                        :typemodifiers ("static")
+                        :arguments 
+                          ( ("aType" variable (:type ("GFX_FILE_T" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1794 1812]))                          
+                        :type ("std::unique_ptr" type
+                             (:template-specifier 
+                                ( ("GRAPHICS_IMPORT_PLUGIN" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_import_mgr.h")
+                        (reparse-symbol classsubparts) [1736 1813])
+                    ("private" label
+                       (:depth 1
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_import_mgr.h")
+                        (reparse-symbol classsubparts) [1815 1823])
+                    ("GRAPHICS_IMPORT_MGR" function
+                       (:depth 1
+                        :constructor-flag t
+                        :type ("GRAPHICS_IMPORT_MGR" type (:type "class") nil nil)
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_import_mgr.h")
+                        (reparse-symbol classsubparts) [1828 1861]))                  
+                :type "class"
+                :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_import_mgr.h")
+                nil [1271 1864]))          
+      :file "graphics_import_mgr.h"
+      :pointmax 1901
+      :fsize 1900
+      :lastmodtime '(22579 39157 739674 693000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("GRAPHICS_IMPORTER_H" variable (:constant-flag t) nil [1101 1120])
+            ("graphics_import_mgr.h" include nil nil [1122 1154])
+            ("graphics_import_plugin.h" include nil nil [1155 1190])
+            ("eda_text.h" include (:system-flag t) nil [1192 1213])
+            ("math/vector2d.h" include (:system-flag t) nil [1214 1240])
+            ("list" include (:system-flag t) nil [1242 1257])
+            ("memory" include (:system-flag t) nil [1258 1275])
+            ("vector" include (:system-flag t) nil [1276 1293])
+            ("EDA_ITEM" type
+               (:prototype t
+                :type "class")
+                nil [1295 1310])
+            ("GRAPHICS_IMPORTER" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [1431 1438])
+                    ("GRAPHICS_IMPORTER" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("GRAPHICS_IMPORTER" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [1443 1463])
+                    ("GRAPHICS_IMPORTER" function
+                       (:destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [1469 1509])
+                    ("SetPlugin" function
+                       (:arguments 
+                          ( ("aPlugin" variable (:type ("std::unique_ptr" type
+                                 (:template-specifier 
+                                    ( ("GRAPHICS_IMPORT_PLUGIN" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol arg-sub-list) [1619 1668]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [1603 1721])
+                    ("Import" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("aXScale" variable (:type "float") (reparse-symbol arg-sub-list) [1875 1889])
+                            ("aYScale" variable (:type "float") (reparse-symbol arg-sub-list) [1890 1904]))                          
+                        :type "bool")
+                        (reparse-symbol classsubparts) [1862 1905])
+                    ("GetImageWidth" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [2034 2112])
+                    ("GetImageHeight" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [2242 2322])
+                    ("SetLineWidth" function
+                       (:arguments 
+                          ( ("aWidth" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [2425 2446]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2406 2488])
+                    ("GetLineWidth" function
+                       (:methodconst-flag t
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [2580 2653])
+                    ("SetXScale" function
+                       (:arguments 
+                          ( ("aScale" variable (:type "double") (reparse-symbol arg-sub-list) [2769 2784]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2753 2823])
+                    ("SetYScale" function
+                       (:arguments 
+                          ( ("aScale" variable (:type "double") (reparse-symbol arg-sub-list) [2939 2954]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2923 2993])
+                    ("GetScale" function
+                       (:methodconst-flag t
+                        :type "double")
+                        (reparse-symbol classsubparts) [3085 3144])
+                    ("GetItems" function (:type ("std::list" type
+                         (:template-specifier 
+                            ( ("std::unique_ptr" type (:template-specifier 
+                                ( ("EDA_ITEM" type nil nil nil))                                ) nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [3242 3326])
+                    ("DEFAULT_LINE_WIDTH" variable
+                       (:default-value "1"
+                        :type "unsigned int")
+                        (reparse-symbol classsubparts) [3401 3437])
+                    ("AddLine" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("aOrigin" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("VECTOR2D" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3758 3782])
+                            ("aEnd" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("VECTOR2D" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3783 3805]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [3736 3810])
+                    ("AddCircle" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("aCenter" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("VECTOR2D" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4061 4085])
+                            ("aRadius" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [4086 4108]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4037 4113])
+                    ("AddArc" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("aCenter" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("VECTOR2D" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4460 4484])
+                            ("aStart" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("VECTOR2D" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [4485 4508])
+                            ("aAngle" variable (:type "double") (reparse-symbol arg-sub-list) [4509 4524]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4439 4529])
+                    ("AddPolygon" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("aVertices" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("VECTOR2D" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [4560 4602]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [4535 4607])
+                    ("AddText" function
+                       (:pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :arguments 
+                          ( ("aOrigin" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("VECTOR2D" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5237 5261])
+                            ("aText" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("wxString" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [5262 5284])
+                            ("aHeight" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [5297 5318])
+                            ("aWidth" variable (:type "unsigned int") (reparse-symbol arg-sub-list) [5319 5335])
+                            ("aOrientation" variable (:type "double") (reparse-symbol arg-sub-list) [5336 5356])
+                            ("aHJustify" variable (:type ("EDA_TEXT_HJUSTIFY_T" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5369 5399])
+                            ("aVJustify" variable (:type ("EDA_TEXT_VJUSTIFY_T" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5400 5431]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5215 5436])
+                    ("protected" label nil (reparse-symbol classsubparts) [5438 5448])
+                    ("addItem" function
+                       (:arguments 
+                          ( ("aItem" variable (:type ("std::unique_ptr" type
+                                 (:template-specifier 
+                                    ( ("EDA_ITEM" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol arg-sub-list) [5518 5551]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [5504 5615])
+                    ("private" label nil (reparse-symbol classsubparts) [5617 5625])
+                    ("m_items" variable (:type ("std::list" type
+                         (:template-specifier 
+                            ( ("std::unique_ptr" type (:template-specifier 
+                                ( ("EDA_ITEM" type nil nil nil))                                ) nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [5662 5707])
+                    ("m_plugin" variable (:type ("std::unique_ptr" type
+                         (:template-specifier 
+                            ( ("GRAPHICS_IMPORT_PLUGIN" type nil nil nil))                            
+                          :type "class")
+                          nil nil)) (reparse-symbol classsubparts) [5749 5798])
+                    ("m_originalWidth" variable (:type "unsigned int") (reparse-symbol classsubparts) [5831 5860])
+                    ("m_originalHeight" variable (:type "unsigned int") (reparse-symbol classsubparts) [5895 5925])
+                    ("m_lineWidth" variable (:type "unsigned int") (reparse-symbol classsubparts) [5989 6014])
+                    ("m_scale" variable (:type "double") (reparse-symbol classsubparts) [6075 6090]))                  
+                :type "class")
+                nil [1405 6093]))          
+      :file "graphics_importer.h"
+      :pointmax 6128
+      :fsize 6127
+      :lastmodtime '(22590 8252 195765 752000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("GRAPHICS_IMPORTER_H")
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("GRAPHICS_IMPORTER_PCBNEW_H" variable
+               (:constant-flag t
+                :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                nil [1108 1134])
+            ("graphics_importer.h" include (:truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h") nil [1136 1166])
+            ("layers_id_colors_and_visibility.h" include
+               (:system-flag t
+                :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                nil [1168 1212])
+            ("BOARD_ITEM" type
+               (:prototype t
+                :type "class"
+                :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                nil [1214 1231])
+            ("BOARD" type
+               (:prototype t
+                :type "class"
+                :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                nil [1232 1244])
+            ("MODULE" type
+               (:prototype t
+                :type "class"
+                :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                nil [1245 1258])
+            ("DRAWSEGMENT" type
+               (:prototype t
+                :type "class"
+                :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                nil [1259 1277])
+            ("EDA_TEXT" type
+               (:prototype t
+                :type "class"
+                :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                nil [1278 1293])
+            ("GRAPHICS_IMPORTER_PCBNEW" type
+               (:superclasses 
+                  ( ("GRAPHICS_IMPORTER" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label
+                       (:depth 1
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [1355 1362])
+                    ("GRAPHICS_IMPORTER_PCBNEW" function
+                       (:depth 1
+                        :constructor-flag t
+                        :type ("GRAPHICS_IMPORTER_PCBNEW" type (:type "class") nil nil)
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [1367 1436])
+                    ("SetLayer" function
+                       (:depth 1
+                        :arguments 
+                          ( ("aLayer" variable (:type ("LAYER_ID" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1603 1620]))                          
+                        :type "void"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [1588 1658])
+                    ("GetLayer" function
+                       (:depth 1
+                        :methodconst-flag t
+                        :type ("LAYER_ID" type (:type "class") nil nil)
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [1744 1805])
+                    ("override" variable
+                       (:depth 1
+                        :type "int"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [1873 1882])
+                    ("override" variable
+                       (:depth 1
+                        :type "int"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [1952 1961])
+                    ("override" variable
+                       (:depth 1
+                        :type "int"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [2045 2054])
+                    ("override" variable
+                       (:depth 1
+                        :type "int"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [2120 2129])
+                    ("override" variable
+                       (:depth 1
+                        :type "int"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [2344 2353])
+                    ("protected" label
+                       (:depth 1
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [2355 2365])
+                    ("createDrawing" function
+                       (:depth 1
+                        :pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("std::unique_ptr" type
+                             (:template-specifier 
+                                ( ("DRAWSEGMENT" type nil nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [2428 2485])
+                    ("createText" function
+                       (:depth 1
+                        :pure-virtual-flag t
+                        :prototype-flag t
+                        :typemodifiers ("virtual")
+                        :type ("std::pair" type
+                             (:template-specifier 
+                                ( ("std::unique_ptr" type (:template-specifier 
+                                    ( ("BOARD_ITEM" type nil nil nil))                                    ) nil nil)
+                                  ("EDA_TEXT" type (:pointer 1) nil nil))                                
+                              :type "class")
+                              nil nil)
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [2654 2729])
+                    ("m_layer" variable
+                       (:depth 1
+                        :type ("LAYER_ID" type (:type "class") nil nil)
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [2782 2799]))                  
+                :type "class"
+                :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                nil [1295 2802])
+            ("GRAPHICS_IMPORTER_BOARD" type
+               (:superclasses 
+                  ( ("GRAPHICS_IMPORTER_PCBNEW" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label
+                       (:depth 1
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [2871 2878])
+                    ("GRAPHICS_IMPORTER_BOARD" function
+                       (:depth 1
+                        :constructor-flag t
+                        :arguments 
+                          ( ("aBoard" variable
+                               (:pointer 1
+                                :type ("BOARD" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [2908 2923]))                          
+                        :type ("GRAPHICS_IMPORTER_BOARD" type (:type "class") nil nil)
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [2883 2963])
+                    ("protected" label
+                       (:depth 1
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [2965 2975])
+                    ("override" variable
+                       (:depth 1
+                        :type "int"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [3025 3034])
+                    ("override" variable
+                       (:depth 1
+                        :type "int"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [3102 3111])
+                    ("m_board" variable
+                       (:depth 1
+                        :pointer 1
+                        :type ("BOARD" type (:type "class") nil nil)
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [3117 3132]))                  
+                :type "class"
+                :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                nil [2805 3135])
+            ("GRAPHICS_IMPORTER_MODULE" type
+               (:superclasses 
+                  ( ("GRAPHICS_IMPORTER_PCBNEW" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label
+                       (:depth 1
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [3205 3212])
+                    ("GRAPHICS_IMPORTER_MODULE" function
+                       (:depth 1
+                        :constructor-flag t
+                        :arguments 
+                          ( ("aModule" variable
+                               (:pointer 1
+                                :type ("MODULE" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [3243 3260]))                          
+                        :type ("GRAPHICS_IMPORTER_MODULE" type (:type "class") nil nil)
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [3217 3302])
+                    ("protected" label
+                       (:depth 1
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [3304 3314])
+                    ("override" variable
+                       (:depth 1
+                        :type "int"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [3364 3373])
+                    ("override" variable
+                       (:depth 1
+                        :type "int"
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [3441 3450])
+                    ("m_module" variable
+                       (:depth 1
+                        :pointer 1
+                        :type ("MODULE" type (:type "class") nil nil)
+                        :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                        (reparse-symbol classsubparts) [3456 3473]))                  
+                :type "class"
+                :truefile "/home/aylons/git/kicad/pcbnew/import_gfx/graphics_importer_pcbnew.h")
+                nil [3138 3476]))          
+      :file "graphics_importer_pcbnew.h"
+      :pointmax 3516
+      :fsize 3515
+      :lastmodtime '(22579 41265 448053 355000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("SVG_IMPORT_PLUGIN_H" variable (:constant-flag t) nil [1107 1126])
+            ("graphics_import_plugin.h" include nil nil [1128 1163])
+            ("drw_interface.h" include nil nil [1164 1190])
+            ("math/vector2d.h" include (:system-flag t) nil [1191 1217])
+            ("SVG_IMPORT_PLUGIN" type
+               (:superclasses 
+                  ( ("GRAPHICS_IMPORT_PLUGIN" type
+                       (:protection "public"
+                        :type "class")
+                        nil nil))                  
+                :members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [1278 1285])
+                    ("override" variable (:type "int") (reparse-symbol classsubparts) [1547 1556])
+                    ("private" label nil (reparse-symbol classsubparts) [2154 2162])
+                    ("DrawPath" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("aPoints" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "float")
+                                (reparse-symbol arg-sub-list) [2182 2203])
+                            ("aNumPoints" variable (:type "int") (reparse-symbol arg-sub-list) [2204 2219])
+                            ("aClosedPath" variable (:type "bool") (reparse-symbol arg-sub-list) [2220 2238]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2167 2239])
+                    ("DrawLinePath" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("aPoints" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "float")
+                                (reparse-symbol arg-sub-list) [2264 2285])
+                            ("aNumPoints" variable (:type "int") (reparse-symbol arg-sub-list) [2286 2301])
+                            ("aGeneratedPoints" variable
+                               (:reference 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("VECTOR2D" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [2314 2357]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2245 2358])
+                    ("DrawCubicBezierPath" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("aPoints" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "float")
+                                (reparse-symbol arg-sub-list) [2390 2411])
+                            ("aNumPoints" variable (:type "int") (reparse-symbol arg-sub-list) [2412 2427])
+                            ("aGeneratedPoints" variable
+                               (:reference 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("VECTOR2D" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [2440 2483]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2364 2484])
+                    ("DrawCubicBezierCurve" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("aPoints" variable
+                               (:pointer 1
+                                :constant-flag t
+                                :type "float")
+                                (reparse-symbol arg-sub-list) [2517 2538])
+                            ("aGeneratedPoints" variable
+                               (:reference 1
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("VECTOR2D" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [2551 2594]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2490 2595])
+                    ("DrawPolygon" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("aPoints" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("VECTOR2D" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [2619 2659]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2601 2660])
+                    ("DrawLineSegments" function
+                       (:prototype-flag t
+                        :arguments 
+                          ( ("aPoints" variable
+                               (:reference 1
+                                :constant-flag t
+                                :type ("std::vector" type
+                                     (:template-specifier 
+                                        ( ("VECTOR2D" type nil nil nil))                                        
+                                      :type "class")
+                                      nil nil))
+                                (reparse-symbol arg-sub-list) [2688 2728]))                          
+                        :type "void")
+                        (reparse-symbol classsubparts) [2665 2729])
+                    ("parsedImage" variable
+                       (:pointer 1
+                        :type ("NSVGimage" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [2735 2765]))                  
+                :type "class")
+                nil [1220 2768]))          
+      :file "svg_import_plugin.h"
+      :pointmax 2803
+      :fsize 2802
+      :lastmodtime '(22588 57566 579313 876000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("SVG_IMPORT_PLUGIN_H")
+          )
+)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("dxf_import_plugin.h" include nil nil [1065 1095])
+            ("graphics_importer.h" include nil nil [1096 1126])
+            ("libdxfrw.h" include (:system-flag t) nil [1128 1149])
+            ("convert_to_biu.h" include (:system-flag t) nil [1150 1177])
+            ("class_drawsegment.h" include (:system-flag t) nil [1179 1209])
+            ("wx/regex.h" include (:system-flag t) nil [1211 1232])
+            ("MIN_BULGE" variable
+               (:typemodifiers ("static")
+                :constant-flag t
+                :default-value "0.0218"
+                :type "double")
+                nil [1351 1390])
+            ("DXF_IMPORT_PLUGIN" function
+               (:constructor-flag t
+                :parent "DXF_IMPORT_PLUGIN"
+                :type ("DXF_IMPORT_PLUGIN" type (:type "class") nil nil))
+                nil [1392 1456])
+            ("Load" function
+               (:parent "DXF_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aFileName" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("wxString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1489 1516]))                  
+                :type "bool")
+                nil [1459 1627])
+            ("mapX" function
+               (:parent "DXF_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aDxfCoordX" variable (:type "double") (reparse-symbol arg-sub-list) [1729 1748]))                  
+                :type "int")
+                nil [1700 1872])
+            ("mapY" function
+               (:parent "DXF_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aDxfCoordY" variable (:type "double") (reparse-symbol arg-sub-list) [1904 1923]))                  
+                :type "int")
+                nil [1875 2048])
+            ("mapDim" function
+               (:parent "DXF_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aDxfValue" variable (:type "double") (reparse-symbol arg-sub-list) [2082 2100]))                  
+                :type "int")
+                nil [2051 2154])
+            ("insertLine" function
+               (:parent "DXF_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aSegStart" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("wxRealPoint" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2193 2222])
+                    ("aSegEnd" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("wxRealPoint" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2223 2251]))                  
+                :type "void")
+                nil [2157 2452])
+            ("insertArc" function
+               (:parent "DXF_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aSegStart" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("wxRealPoint" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2490 2519])
+                    ("aSegEnd" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("wxRealPoint" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2520 2547])
+                    ("aBulge" variable (:type "double") (reparse-symbol arg-sub-list) [2556 2571]))                  
+                :type "void")
+                nil [2455 4543])
+            ("addHeader" function
+               (:parent "DXF_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("data" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type ("DRW_Header" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4581 4605]))                  
+                :type "void")
+                nil [4546 6614])
+            ("addLine" function
+               (:parent "DXF_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aData" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("DRW_Line" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6650 6673]))                  
+                :type "void")
+                nil [6617 6862])
+            ("addCircle" function
+               (:parent "DXF_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aData" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("DRW_Circle" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [6900 6925]))                  
+                :type "void")
+                nil [6865 7067])
+            ("addArc" function
+               (:parent "DXF_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("data" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("DRW_Arc" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7102 7123]))                  
+                :type "void")
+                nil [7070 7795])
+            ("addLWPolyline" function
+               (:parent "DXF_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aData" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("DRW_LWPolyline" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [7836 7865]))                  
+                :type "void")
+                nil [7798 9381])
+            ("addPolyline" function
+               (:parent "DXF_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aData" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("DRW_Polyline" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [9420 9447]))                  
+                :type "void")
+                nil [9384 10450])
+            ("addText" function
+               (:parent "DXF_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aData" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("DRW_Text" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10487 10510]))                  
+                :type "void")
+                nil [10454 12425])
+            ("addMText" function
+               (:parent "DXF_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aData" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("DRW_MText" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [12462 12486]))                  
+                :type "void")
+                nil [12428 15127])
+            ("toDxfString" function
+               (:parent "DXF_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aStr" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("wxString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [15171 15193]))                  
+                :type ("wxString" type (:type "class") nil nil))
+                nil [15130 16156])
+            ("toNativeString" function
+               (:parent "DXF_IMPORT_PLUGIN"
+                :arguments 
+                  ( ("aData" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("wxString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [16203 16226]))                  
+                :type ("wxString" type (:type "class") nil nil))
+                nil [16159 18058]))          
+      :file "dxf_import_plugin.cpp"
+      :pointmax 18059
+      :fsize 18058
+      :lastmodtime '(22579 39157 711676 138000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("graphics_import_mgr.h" include nil nil [1065 1097])
+            ("dxf_import_plugin.h" include nil nil [1099 1129])
+            ("svg_import_plugin.h" include nil nil [1130 1160])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [1162 1182])
+            ("GetPlugin" function
+               (:parent "GRAPHICS_IMPORT_MGR"
+                :arguments 
+                  ( ("aType" variable (:type ("GFX_FILE_T" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1251 1269]))                  
+                :type ("unique_ptr" type
+                     (:template-specifier 
+                        ( ("GRAPHICS_IMPORT_PLUGIN" type nil nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [1184 1648])
+            ("GetPluginByExt" function
+               (:parent "GRAPHICS_IMPORT_MGR"
+                :arguments 
+                  ( ("aExtension" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("wxString" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [1723 1751]))                  
+                :type ("unique_ptr" type
+                     (:template-specifier 
+                        ( ("GRAPHICS_IMPORT_PLUGIN" type nil nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [1651 2123])
+            ("GRAPHICS_IMPORT_MGR::GFX_FILE_TYPES" variable
+               (:constant-flag t
+                :default-value "{ DXF, SVG }"
+                :type ("vector" type
+                     (:template-specifier 
+                        ( ("GRAPHICS_IMPORT_MGR::GFX_FILE_T" type nil nil nil))                        
+                      :type "class")
+                      nil nil))
+                nil [2126 2223]))          
+      :file "graphics_import_mgr.cpp"
+      :pointmax 2224
+      :fsize 2223
+      :lastmodtime '(22579 39157 739674 693000)
+      :unmatched-syntax nil))
+  :file "!home!aylons!git!kicad!pcbnew!import_gfx!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

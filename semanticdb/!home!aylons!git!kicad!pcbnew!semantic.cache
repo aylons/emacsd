@@ -1,0 +1,78 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("ratsnest_viewitem.h" include (:system-flag t) nil [1162 1192])
+            ("ratsnest_data.h" include (:system-flag t) nil [1193 1219])
+            ("gal/graphics_abstraction_layer.h" include (:system-flag t) nil [1220 1263])
+            ("pcb_painter.h" include (:system-flag t) nil [1264 1288])
+            ("layers_id_colors_and_visibility.h" include (:system-flag t) nil [1289 1333])
+            ("KIGFX" type
+               (:members 
+                  ( ("RATSNEST_VIEWITEM" function
+                       (:constructor-flag t
+                        :parent "RATSNEST_VIEWITEM"
+                        :arguments 
+                          ( ("aData" variable
+                               (:pointer 1
+                                :type ("RN_DATA" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1393 1409]))                          
+                        :type ("RATSNEST_VIEWITEM" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [1355 1461])
+                    ("ViewBBox" function
+                       (:methodconst-flag t
+                        :parent "RATSNEST_VIEWITEM"
+                        :constant-flag t
+                        :type ("BOX2I" type (:type "class") nil nil))
+                        (reparse-symbol namespacesubparts) [1464 1602])
+                    ("ViewDraw" function
+                       (:methodconst-flag t
+                        :parent "RATSNEST_VIEWITEM"
+                        :arguments 
+                          ( ("aLayer" variable (:type "int") (reparse-symbol arg-sub-list) [1639 1650])
+                            ("aGal" variable
+                               (:pointer 1
+                                :type ("GAL" type (:type "class") nil nil))
+                                (reparse-symbol arg-sub-list) [1651 1662]))                          
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [1605 3612])
+                    ("ViewGetLayers" function
+                       (:methodconst-flag t
+                        :parent "RATSNEST_VIEWITEM"
+                        :arguments 
+                          ( ("aLayers" variable
+                               (:dereference 1
+                                :type "int")
+                                (reparse-symbol arg-sub-list) [3654 3668])
+                            ("aCount" variable
+                               (:reference 1
+                                :type "int")
+                                (reparse-symbol arg-sub-list) [3669 3682]))                          
+                        :type "void")
+                        (reparse-symbol namespacesubparts) [3615 3761]))                  
+                :type "namespace")
+                nil [1336 3764]))          
+      :file "ratsnest_viewitem.cpp"
+      :pointmax 3765
+      :fsize 3764
+      :lastmodtime '(22569 8324 801093 14000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :file "ratsnest_viewitem.h"
+      :fsize 2145
+      :lastmodtime '(22569 8324 801093 14000))
+    (semanticdb-table "semanticdb-table"
+      :file "ratsnest_data.h"
+      :fsize 25520
+      :lastmodtime '(22569 8324 801093 14000))
+    (semanticdb-table "semanticdb-table"
+      :file "pcb_painter.h"
+      :fsize 6451
+      :lastmodtime '(22569 8324 797093 54000)))
+  :file "!home!aylons!git!kicad!pcbnew!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

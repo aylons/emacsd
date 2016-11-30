@@ -1,0 +1,1 @@
+("~/git/kicad/" "~/.emacs.d/" "~/.config/git/" "~/Insynq/Projetos pessoais/filmes/")

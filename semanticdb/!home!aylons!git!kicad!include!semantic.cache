@@ -1,0 +1,23 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c++-mode
+      :tags 
+        '( ("CONVERT_TO_BIU_H_" variable (:constant-flag t) nil [1173 1190])
+            ("UNKNOWN_IU" variable (:constant-flag t) nil [2575 2585]))          
+      :file "convert_to_biu.h"
+      :pointmax 3093
+      :fsize 3092
+      :lastmodtime '(22588 58019 981479 85000)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("CONVERT_TO_BIU_H_")
+          ("UNKNOWN_IU")
+          )
+))
+  :file "!home!aylons!git!kicad!include!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")
