@@ -24,7 +24,7 @@
      ("marmalade" . "https://marmalade-repo.org/packages/"))))
  '(package-selected-packages
    (quote
-    (indent-guide ws-butler clean-aindent-mode stickyfunc-enhance org-projectile srefactor company-cmake with-editor git-commit async dash magit-popup company ivy swiper find-file-in-project highlight-indentation pyvenv yasnippet w3 vlf spotify speck smex markdown-mode magit helm-gtags ggtags function-args elpy dired-nav-enhance cmake-mode auto-complete-octave)))
+    (flymd markdown-mode+ markdown-preview-eww markdown-preview-mode indent-guide ws-butler clean-aindent-mode stickyfunc-enhance org-projectile srefactor company-cmake with-editor git-commit async dash magit-popup company ivy swiper find-file-in-project highlight-indentation pyvenv yasnippet w3 vlf spotify speck smex markdown-mode magit helm-gtags ggtags function-args elpy dired-nav-enhance cmake-mode auto-complete-octave)))
  '(py-shell-name "ipython3")
  '(sr-speedbar-right-side nil)
  '(sr-speedbar-skip-other-window-p t)
@@ -299,6 +299,14 @@
 ; Tramp mode
 (setq tramp-default-method "ssh")
 
+(setq remote-file-name-inhibit-cache nil)
+(setq vc-ignore-dir-regexp
+      (format "%s\\|%s"
+                    vc-ignore-dir-regexp
+                    tramp-file-name-regexp))
+(setq tramp-verbose 1)
+
+
 ;; Remove toolbar
 (tool-bar-mode 0)
 
@@ -405,6 +413,7 @@
 (add-hook 'helm-minibuffer-set-up-hook
           'spacemacs//helm-hide-minibuffer-maybe)
 
+
 (setq helm-autoresize-max-height 0)
 (setq helm-autoresize-min-height 20)
 (helm-autoresize-mode 1)
@@ -495,6 +504,8 @@
 ;(load-file (expand-file-name "package-recover.el" user-emacs-directory))
 ;(setq package-file (expand-file-name "package.lst" user-emacs-directory))
 ;(recover-packages package-file)
+
+(setq projectile-mode-line "Projectile")
 
 (put 'dired-find-alternate-file 'disabled nil)
 
