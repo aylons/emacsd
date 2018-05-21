@@ -1,0 +1,96 @@
+<p><strong>Autopair</strong> is an extension to the Emacs text editor that automatically pairs braces and quotes:</p>
+<ul>
+<li>Opening braces/quotes are autopaired;</li>
+<li>Closing braces/quotes are autoskipped;</li>
+<li>Backspacing an opening brace/quote autodeletes its pair.</li>
+<li>Newline between newly-opened brace pairs open an extra indented line.</li>
+</ul>
+<p>Autopair works well across all Emacs major-modes, deduces from the language's syntax table which characters to pair, skip or delete. It should work even with extensions that redefine such keys.</p>
+<h1 id="installation-and-basic-use">Installation and basic use:</h1>
+<p>To try it out, download the <a href="http://autopair.googlecode.com/git/autopair.el">latest version</a> and add to your <code>.emacs</code>:</p>
+<pre class="example"><code>(add-to-list &#39;load-path &quot;/path/to/autopair&quot;) ;; comment if autopair.el is in standard load path 
+(require &#39;autopair)
+(autopair-global-mode) ;; enable autopair in all buffers
+</code></pre>
+<h1 id="rationale">Rationale</h1>
+<p>I developed autopair to work just like <a href="http://macromates.com/">TextMate</a> or better, be minimally intrusive to my existing hacks and need very little customization. You might prefer it to the following:</p>
+<ul>
+<li><a href="http://www.emacswiki.org/emacs/ParEdit" class="uri">http://www.emacswiki.org/emacs/ParEdit</a></li>
+<li><a href="http://code.google.com/p/emacs-textmate/" class="uri">http://code.google.com/p/emacs-textmate/</a></li>
+<li><a href="http://github.com/ramblex/emacs-textmate" class="uri">http://github.com/ramblex/emacs-textmate</a></li>
+<li><a href="http://svn.ruby-lang.org/repos/ruby/trunk/misc/ruby-electric.el" class="uri">http://svn.ruby-lang.org/repos/ruby/trunk/misc/ruby-electric.el</a> (most of it)</li>
+<li>the options listed in <a href="http://www.emacswiki.org/emacs/AutoPairs" class="uri">http://www.emacswiki.org/emacs/AutoPairs</a></li>
+</ul>
+<p>It also works with <a href="http://github.com/capitaomorte/yasnippet/">YASnippet</a>, another package I maintain.</p>
+<h1 id="neat-tricks">Neat tricks</h1>
+<ul>
+<li><p><code>autopair-autowrap</code> tells autopair to automatically wrap the selection region with the delimiters you're trying to insert.</p></li>
+<li><p><code>autopair-blink</code> makes the cursor quickly blink over matching braces and quotes just inserted or skipped over. If you find this behaviour annoying, set this to nil.</p></li>
+<li><p><code>autopair-skip-whitespace</code>, when set to non-nil, tells autopair to skip over whitespace when attempting to skip over a closing brace. If you set this to 'chomp, the whitespace is not only jumped over but also deleted.</p></li>
+</ul>
+<p>Autopair's idea is to always do-what-you-mean, but since some people are never satisfied, have a look at the following:</p>
+<h1 id="optional-tricks">Optional tricks</h1>
+<p>You shouldn't need this, but to enable autopair in just some types of buffers, comment out the `autopair-global-mode` and turn on `autopair-mode` in some major-mode hook, like:</p>
+<pre class="example"><code>;; use autopair just in c buffers
+
+(add-hook &#39;c-mode-common-hook 
+          #&#39;(lambda () (autopair-mode)))
+</code></pre>
+<p>Alternatively, do use <code>autopair-global-mode</code> and create <strong>exceptions</strong> using the major mode hooks (watch out for the change in behaviour emacs 24).</p>
+<pre class="example"><code>;; use autopair everywhere but c buffers
+
+(add-hook &#39;c-mode-common-hook
+           #&#39;(lambda () 
+               (setq autopair-dont-activate t) ;; for emacsen &lt; 24
+               (autopair-mode -1))             ;; for emacsen &gt;= 24
+)
+</code></pre>
+<h1 id="more-tricks">More tricks</h1>
+<p><code>autopair-dont-pair</code> lets you define special cases of characters you don't want paired. Its default value skips pairing single-quote characters when inside a comment literal, even if the language syntax tables does pair these characters.</p>
+<p>As a further example, to also prevent the <code>{</code> (opening brace) character from being autopaired in C++ comments use this in your .emacs.</p>
+<pre class="example"><code>(add-hook &#39;c++-mode-hook
+          #&#39;(lambda ()
+               (push ?
+                     (getf autopair-dont-pair :comment))))
+</code></pre>
+<p><code>autopair-handle-action-fns</code> lets you write some emacs-lisp that overrides/extends the actions taken by autopair after it decides something must be paired, skipped or deleted. To work with triple quoting in python mode, you can use this for example:</p>
+<pre class="example"><code>(add-hook &#39;python-mode-hook
+          #&#39;(lambda ()
+              (setq autopair-handle-action-fns
+                    (list #&#39;autopair-default-handle-action
+                          #&#39;autopair-python-triple-quote-action))))
+</code></pre>
+<p>where <code>autopair-python-triple-quote-action</code> is an example of a user-written function (which is bundled in <code>autopair.el</code>).</p>
+<p>See <a href="http://code.google.com/p/autopair/issues/detail?id=13">this issue</a> for an example of clever use of this variable (thanks <a href="http://code.google.com/u/alexduller/">alexduller</a>).</p>
+<p><code>autopair-extra-pairs</code> lets you define extra pairing and skipping behaviour for pairs not programmed into the syntax table. Watch out, this is work-in-progress, a little unstable and does not help balancing at all. To have <code>&lt;</code> and <code>&gt;</code> pair in <code>c++-mode</code> buffers, but only in code, use:</p>
+<pre class="example"><code>(add-hook &#39;c++-mode-hook
+          #&#39;(lambda ()
+              (push &#39;(?&lt; . ?&gt;)
+                    (getf autopair-extra-pairs :code))))
+</code></pre>
+<p>if you program in emacs-lisp you might also like the following to pair backtick (<code>`</code>) and quote (='=).</p>
+<pre class="example"><code>(add-hook &#39;emacs-lisp-mode-hook
+          #&#39;(lambda ()
+              (push &#39;(?` . ?&#39;)
+                    (getf autopair-extra-pairs :comment))
+              (push &#39;(?` . ?&#39;)
+                    (getf autopair-extra-pairs :string))))
+</code></pre>
+<h1 id="workarounds">Workarounds</h1>
+<p>Once you set <code>autopair-global-mode</code> everything mostly <strong>just works</strong> but a few extensions use tricks that interfere with autopair's own tricks, disabling autopair or some of the extension's functionality. Using the customization techniques described above, there are plenty of very good workarounds for <code>slime-mode</code>, <code>latex-mode</code>, <code>term-mode</code> and even <code>viper-mode</code>.</p>
+<p>See <a href="http://code.google.com/p/autopair/issues/detail?id=20&amp;can=1&amp;q=status:Workaround">the workaround list</a>.</p>
+<h1 id="how-it-works">How it works</h1>
+<p>The extension works by rebinding the braces and quotes keys, but can still be minimally intrusive, since the original binding is always called as if autopair did not exist.</p>
+<p>The decision of which keys to actually rebind is taken at minor-mode activation time, based on the current major mode's syntax tables. To achieve this kind of behaviour, an Emacs variable <code>emulation-mode-map-alists</code> was used.</p>
+<p>If you set <code>autopair-pair-criteria</code> and <code>autopair-skip-criteria</code> to the symbol <code>help-balance</code> (which, by the way, is the default), braces are not autopaired/autoskipped in all situations; the decision to autopair or autoskip a brace is taken according to the following table:</p>
+<pre class="example"><code>+---------+------------+-----------+-------------------+
+| 1234567 | autopair?  | autoskip? | notes             |
++---------+------------+-----------+-------------------+
+|  (())   |  yyyyyyy   |  ---yy--  | balanced          |
++---------+------------+-----------+-------------------+
+|  (()))  |  ------y   |  ---yyy-  | too many closings |
++---------+------------+-----------+-------------------+
+|  ((())  |  yyyyyyy   |  -------  | too many openings |
++---------+------------+-----------+-------------------+
+</code></pre>
+<p>The table is read like this: in a buffer with 7 characters laid out like the first column, an &quot;y&quot; marks points where an opening brace is autopaired and in which places would a closing brace be autoskipped. Quote pairing tries to support similar &quot;intelligence&quot;.</p>

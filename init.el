@@ -5,7 +5,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes (quote (wheatgrass)))
- '(ede-project-directories (quote ("/home/aylons/projetos/afcipm")))
  '(inhibit-startup-screen t)
  '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
  '(org-file-apps
@@ -298,7 +297,7 @@
 
 
 ; Tramp mode
-(setq tramp-default-method "ssh")
+(setq tramp-default-method "scp")
 
 (setq remote-file-name-inhibit-cache nil)
 (setq vc-ignore-dir-regexp
@@ -306,7 +305,6 @@
                     vc-ignore-dir-regexp
                     tramp-file-name-regexp))
 (setq tramp-verbose 1)
-
 
 ;; Remove toolbar
 (tool-bar-mode 0)
@@ -506,7 +504,7 @@
 ;(setq package-file (expand-file-name "package.lst" user-emacs-directory))
 ;(recover-packages package-file)
 
-(setq projectile-mode-line "Projectile")
+(setq projectile-mode-line "Projectile")///////
 
 (put 'dired-find-alternate-file 'disabled nil)
 
