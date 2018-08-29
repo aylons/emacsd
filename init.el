@@ -46,7 +46,8 @@
 -- License along with this program. If not, see
 -- <http://www.gnu.org/licenses/>.
 
-"))
+")
+ '(word-wrap t))
 
 ;; basic behaviour
 (setq search-highlight t                 ;; highlight when searching...
