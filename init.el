@@ -25,6 +25,7 @@
    (quote
     (flymd markdown-mode+ markdown-preview-eww markdown-preview-mode indent-guide ws-butler clean-aindent-mode stickyfunc-enhance org-projectile srefactor company-cmake with-editor git-commit async dash magit-popup company ivy swiper find-file-in-project highlight-indentation pyvenv yasnippet w3 vlf spotify speck smex markdown-mode magit helm-gtags ggtags function-args elpy dired-nav-enhance cmake-mode auto-complete-octave)))
  '(py-shell-name "ipython3")
+ '(python-shell-interpreter "python3")
  '(sr-speedbar-right-side nil)
  '(sr-speedbar-skip-other-window-p t)
  '(vhdl-copyright-string
