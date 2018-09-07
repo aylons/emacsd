@@ -500,10 +500,6 @@
 (global-ede-mode)
 (projectile-global-mode)                ;may sound redundante to ede, but they complement in some ways
 (add-hook 'c-mode-common-hook   'hs-minor-mode)
-;(package-initialize)
-;(load-file (expand-file-name "package-recover.el" user-emacs-directory))
-;(setq package-file (expand-file-name "package.lst" user-emacs-directory))
-;(recover-packages package-file)
 
 (setq projectile-mode-line "Projectile")
 
