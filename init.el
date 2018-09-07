@@ -297,8 +297,8 @@
 (global-set-key (kbd "<f7>") 'gud-finish) ;; equiv matlab step out
 
 
-; Tramp mode
-(setq tramp-default-method "scp")
+;; Tramp mode
+(setq tramp-default-method "ssh")
 
 (setq remote-file-name-inhibit-cache nil)
 (setq vc-ignore-dir-regexp
@@ -505,7 +505,7 @@
 ;(setq package-file (expand-file-name "package.lst" user-emacs-directory))
 ;(recover-packages package-file)
 
-(setq projectile-mode-line "Projectile")///////
+(setq projectile-mode-line "Projectile")
 
 (put 'dired-find-alternate-file 'disabled nil)
 
