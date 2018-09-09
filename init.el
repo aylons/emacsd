@@ -306,6 +306,11 @@
       (format "%s\\|%s"
                     vc-ignore-dir-regexp
                     tramp-file-name-regexp))
+(add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+(add-to-list 'backup-directory-alist
+             (cons tramp-file-name-regexp nil))
+(setq tramp-auto-save-directory temporary-file-directory)
+(setq tramp-verbose 10)
 (setq tramp-verbose 1)
 
 ;; Remove toolbar
