@@ -6,3 +6,8 @@ eshell*
 session*
 archives*
 elpa*
+semanticdb/*
+semanticdb*
+*.cache
+*.data
+/projectile-bookmarks.eld

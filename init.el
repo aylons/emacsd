@@ -5,7 +5,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes (quote (wheatgrass)))
- '(ede-project-directories (quote ("/home/aylons/projetos/afcipm")))
+ '(helm-exit-idle-delay 0.0)
  '(inhibit-startup-screen t)
  '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
  '(org-file-apps
@@ -23,8 +23,9 @@
      ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (look-dired look-mode flymd markdown-mode+ markdown-preview-eww markdown-preview-mode indent-guide ws-butler clean-aindent-mode stickyfunc-enhance org-projectile srefactor company-cmake with-editor git-commit async dash magit-popup company ivy swiper find-file-in-project highlight-indentation pyvenv yasnippet w3 vlf spotify speck smex markdown-mode magit helm-gtags ggtags function-args elpy dired-nav-enhance cmake-mode auto-complete-octave)))
+    (fancy-narrow flycheck-ledger ledger-mode flymd markdown-mode+ markdown-preview-eww markdown-preview-mode indent-guide ws-butler clean-aindent-mode stickyfunc-enhance org-projectile srefactor company-cmake with-editor git-commit async dash magit-popup company ivy swiper find-file-in-project highlight-indentation pyvenv yasnippet w3 vlf spotify speck smex markdown-mode magit helm-gtags ggtags function-args elpy dired-nav-enhance cmake-mode auto-complete-octave)))
  '(py-shell-name "ipython3")
+ '(python-shell-interpreter "python3")
  '(sr-speedbar-right-side nil)
  '(sr-speedbar-skip-other-window-p t)
  '(vhdl-copyright-string
@@ -296,7 +297,7 @@
 (global-set-key (kbd "<f7>") 'gud-finish) ;; equiv matlab step out
 
 
-; Tramp mode
+;; Tramp mode
 (setq tramp-default-method "ssh")
 
 (setq remote-file-name-inhibit-cache nil)
@@ -304,8 +305,12 @@
       (format "%s\\|%s"
                     vc-ignore-dir-regexp
                     tramp-file-name-regexp))
+(add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+(add-to-list 'backup-directory-alist
+             (cons tramp-file-name-regexp nil))
+(setq tramp-auto-save-directory temporary-file-directory)
+(setq tramp-verbose 10)
 (setq tramp-verbose 1)
-
 
 ;; Remove toolbar
 (tool-bar-mode 0)
@@ -500,10 +505,6 @@
 (global-ede-mode)
 (projectile-global-mode)                ;may sound redundante to ede, but they complement in some ways
 (add-hook 'c-mode-common-hook   'hs-minor-mode)
-;(package-initialize)
-;(load-file (expand-file-name "package-recover.el" user-emacs-directory))
-;(setq package-file (expand-file-name "package.lst" user-emacs-directory))
-;(recover-packages package-file)
 
 (setq projectile-mode-line "Projectile")
 
@@ -512,6 +513,7 @@
 (require 're-builder)
 (setq reb-re-syntax 'string)
 
+(fancy-narrow-mode)
 ;(find-file "~/todo.package") 
 
 
