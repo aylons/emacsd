@@ -27,6 +27,7 @@
  '(py-shell-name "ipython3")
  '(python-shell-interpreter "python3")
  '(sr-speedbar-right-side nil)
+ '(truncate-lines t)
  '(sr-speedbar-skip-other-window-p t)
  '(vhdl-copyright-string
    "-------------------------------------------------------------------------------
