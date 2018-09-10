@@ -30,7 +30,7 @@
  '(sr-speedbar-skip-other-window-p t)
  '(vhdl-copyright-string
    "-------------------------------------------------------------------------------
--- Copyright (c) <year> <company>    
+-- Copyright (c) <year> <company>
 
 -- This program is free software: you can redistribute it and/or
 -- modify it under the terms of the GNU Lesser General Public License
