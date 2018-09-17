@@ -1,3 +1,5 @@
+(add-to-list 'load-path "~/.emacs.d/org")
+
 (require 'package)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -5,15 +7,24 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes (quote (wheatgrass)))
- '(helm-exit-idle-delay 0.0)
+ '(helm-exit-idle-delay 0.01)
  '(inhibit-startup-screen t)
  '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
+ '(org-capture-templates
+   (quote
+    (("j" "Journal entry" plain
+      (file+olp+datetree "~/Dropbox/org/journal/journal.org")
+      "**** %<%T> - %a
+%i
+%?
+" :empty-lines 1 :tree-type week))))
  '(org-file-apps
    (quote
     ((auto-mode . emacs)
      ("\\.mm\\'" . default)
      ("\\.x?html?\\'" . default)
      ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1"))))
+ '(org-journal-dir "~/Dropbox/org/journal")
  '(org-todo-keywords
    (quote
     ((sequence "TODO(t)" "DONE(d)" "WAITING(w)" "SOMEDAY(s)"))))
@@ -23,7 +34,7 @@
      ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (fancy-narrow flycheck-ledger ledger-mode flymd markdown-mode+ markdown-preview-eww markdown-preview-mode indent-guide ws-butler clean-aindent-mode stickyfunc-enhance org-projectile srefactor company-cmake with-editor git-commit async dash magit-popup company ivy swiper find-file-in-project highlight-indentation pyvenv yasnippet w3 vlf spotify speck smex markdown-mode magit helm-gtags ggtags function-args elpy dired-nav-enhance cmake-mode auto-complete-octave)))
+    (org jinja2-mode w3m smartparens helm-fuzzier helm-fuzzy-find fancy-narrow flycheck-ledger ledger-mode flymd markdown-mode+ markdown-preview-eww markdown-preview-mode indent-guide ws-butler clean-aindent-mode stickyfunc-enhance org-projectile srefactor company-cmake with-editor git-commit async dash magit-popup company ivy swiper find-file-in-project highlight-indentation pyvenv yasnippet w3 vlf spotify speck smex markdown-mode magit helm-gtags ggtags function-args elpy dired-nav-enhance cmake-mode auto-complete-octave)))
  '(py-shell-name "ipython3")
  '(python-shell-interpreter "python3")
  '(sr-speedbar-right-side nil)
@@ -47,8 +58,7 @@
 -- License along with this program. If not, see
 -- <http://www.gnu.org/licenses/>.
 
-")
- '(word-wrap t))
+"))
 
 ;; basic behaviour
 (setq search-highlight t                 ;; highlight when searching...
@@ -131,6 +141,7 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 (setq org-log-done t)
+(define-key global-map "\C-cc" 'org-capture)
 
 ;;(load "~/org-files.el")
 
@@ -299,6 +310,7 @@
 
 
 ;; Tramp mode
+(require 'tramp)
 (setq tramp-default-method "ssh")
 
 (setq remote-file-name-inhibit-cache nil)
@@ -307,6 +319,7 @@
                     vc-ignore-dir-regexp
                     tramp-file-name-regexp))
 (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+(add-to-list 'tramp-remote-path "/usr/bin")
 (add-to-list 'backup-directory-alist
              (cons tramp-file-name-regexp nil))
 (setq tramp-auto-save-directory temporary-file-directory)
@@ -424,8 +437,7 @@
 (setq helm-autoresize-min-height 20)
 (helm-autoresize-mode 1)
 
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-
+;(global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 (helm-mode 1)
 
