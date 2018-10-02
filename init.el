@@ -11,6 +11,9 @@
  '(helm-exit-idle-delay 0.01)
  '(inhibit-startup-screen t)
  '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
+ '(org-agenda-files
+   (quote
+    ("~/Dropbox/org/work/technical_notes" "~/Dropbox/org/work/tasks" "~/Dropbox/org/work")))
  '(org-capture-templates
    (quote
     (("w" "Work journal" plain
@@ -18,7 +21,7 @@
       "**** %<%T> - %a
 %i
 %?
-" :empty-lines 1 :tree-type week)
+" :empty-lines 1 :empty-lines-after 1 :tree-type week)
      ("j" "Journal entry" plain
       (file+olp+datetree "~/Dropbox/org/journal/journal.org")
       "**** %<%T> - %a
@@ -151,6 +154,8 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 (setq org-log-done t)
 (define-key global-map "\C-cc" 'org-capture)
+(define-key global-map "\C-ch" 'org-insert-heading)
+(define-key global-map "\C-cs" 'org-insert-subheading)
 
 ;;(load "~/org-files.el")
 
@@ -536,8 +541,8 @@
 (setq reb-re-syntax 'string)
 
 (fancy-narrow-mode)
-;(find-file "~/todo.package") 
-
+;(find-file "~/todo.package")
+(autoload 'vc-git-root "vc-git")
 
 
 
