@@ -1,6 +1,7 @@
-(add-to-list 'load-path "~/.emacs.d/org")
+; (add-to-list 'load-path "~/.emacs.d/org")
 
 (require 'package)
+(package-initialize)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -10,9 +11,18 @@
  '(helm-exit-idle-delay 0.01)
  '(inhibit-startup-screen t)
  '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
+ '(org-agenda-files
+   (quote
+    ("~/Dropbox/org/work/technical_notes" "~/Dropbox/org/work/tasks" "~/Dropbox/org/work")))
  '(org-capture-templates
    (quote
-    (("j" "Journal entry" plain
+    (("w" "Work journal" plain
+      (file+olp+datetree "~/Dropbox/org/work/work_journal.org")
+      "**** %<%T> - %a
+%i
+%?
+" :empty-lines 1 :empty-lines-after 1 :tree-type week)
+     ("j" "Journal entry" plain
       (file+olp+datetree "~/Dropbox/org/journal/journal.org")
       "**** %<%T> - %a
 %i
@@ -25,6 +35,7 @@
      ("\\.x?html?\\'" . default)
      ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1"))))
  '(org-journal-dir "~/Dropbox/org/journal")
+ '(org-startup-truncated nil)
  '(org-todo-keywords
    (quote
     ((sequence "TODO(t)" "DONE(d)" "WAITING(w)" "SOMEDAY(s)"))))
@@ -34,12 +45,12 @@
      ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (org jinja2-mode w3m smartparens helm-fuzzier helm-fuzzy-find fancy-narrow flycheck-ledger ledger-mode flymd markdown-mode+ markdown-preview-eww markdown-preview-mode indent-guide ws-butler clean-aindent-mode stickyfunc-enhance org-projectile srefactor company-cmake with-editor git-commit async dash magit-popup company ivy swiper find-file-in-project highlight-indentation pyvenv yasnippet w3 vlf spotify speck smex markdown-mode magit helm-gtags ggtags function-args elpy dired-nav-enhance cmake-mode auto-complete-octave)))
+    (company-c-headers org-journal org jinja2-mode w3m smartparens helm-fuzzier helm-fuzzy-find fancy-narrow flycheck-ledger ledger-mode flymd markdown-mode+ markdown-preview-eww markdown-preview-mode indent-guide ws-butler clean-aindent-mode stickyfunc-enhance org-projectile srefactor company-cmake with-editor git-commit async dash magit-popup company ivy swiper find-file-in-project highlight-indentation pyvenv yasnippet w3 vlf spotify speck smex markdown-mode magit helm-gtags ggtags function-args elpy dired-nav-enhance cmake-mode auto-complete-octave)))
  '(py-shell-name "ipython3")
  '(python-shell-interpreter "python3")
  '(sr-speedbar-right-side nil)
- '(truncate-lines t)
  '(sr-speedbar-skip-other-window-p t)
+ '(truncate-lines nil)
  '(vhdl-copyright-string
    "-------------------------------------------------------------------------------
 -- Copyright (c) <year> <company>
@@ -58,7 +69,8 @@
 -- License along with this program. If not, see
 -- <http://www.gnu.org/licenses/>.
 
-"))
+")
+ '(word-wrap t))
 
 ;; basic behaviour
 (setq search-highlight t                 ;; highlight when searching...
@@ -142,6 +154,8 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 (setq org-log-done t)
 (define-key global-map "\C-cc" 'org-capture)
+(define-key global-map "\C-ch" 'org-insert-heading)
+(define-key global-map "\C-cs" 'org-insert-subheading)
 
 ;;(load "~/org-files.el")
 
@@ -376,7 +390,7 @@
 ;; (add-to-list 'package-archives
 ;;              '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 
-(package-initialize)
+
 
  (yas-global-mode 1)
 
@@ -527,8 +541,8 @@
 (setq reb-re-syntax 'string)
 
 (fancy-narrow-mode)
-;(find-file "~/todo.package") 
-
+;(find-file "~/todo.package")
+(autoload 'vc-git-root "vc-git")
 
 
 
