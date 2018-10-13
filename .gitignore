@@ -11,3 +11,6 @@ semanticdb*
 *.cache
 *.data
 /projectile-bookmarks.eld
+/bookmarks
+/recentf
+org/*
