@@ -11,23 +11,15 @@
  '(helm-exit-idle-delay 0.01)
  '(inhibit-startup-screen t)
  '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
+ '(matlab-fill-code nil)
  '(org-agenda-files
    (quote
-    ("~/Dropbox/org/work/technical_notes" "~/Dropbox/org/work/tasks" "~/Dropbox/org/work")))
+    ("~/Insynq-USP/org/inbox.org" "~/Insynq-USP/org/pessoal/carro.org" "~/Insynq-USP/org/pessoal/cartoes.org" "~/Insynq-USP/org/pessoal/médico.org" "~/Insynq-USP/org/pessoal/gatos.org" "~/Insynq-USP/org/pessoal/estudos.org" "~/Insynq-USP/org/pessoal/cotidiano.org")))
  '(org-capture-templates
    (quote
-    (("w" "Work journal" plain
-      (file+olp+datetree "~/Dropbox/org/work/work_journal.org")
-      "**** %<%T> - %a
-%i
-%?
-" :empty-lines 1 :empty-lines-after 1 :tree-type week)
-     ("j" "Journal entry" plain
+    (("j" "Journal entry" plain
       (file+olp+datetree "~/Dropbox/org/journal/journal.org")
-      "**** %<%T> - %a
-%i
-%?
-" :empty-lines 1 :tree-type week))))
+      "\"%K - %a\\n%i\\n%?\\n\""))))
  '(org-file-apps
    (quote
     ((auto-mode . emacs)
@@ -35,25 +27,23 @@
      ("\\.x?html?\\'" . default)
      ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1"))))
  '(org-journal-dir "~/Dropbox/org/journal")
- '(org-startup-truncated nil)
  '(org-todo-keywords
    (quote
-    ((sequence "TODO(t)" "DONE(d)" "WAITING(w)" "SOMEDAY(s)"))))
+    ((sequence "TODO(t)" "DONE(d)" "WAITING(w)" "SOMEDAY(s)" "NEXT(s)"))))
  '(package-archives
    (quote
     (("gnu" . "http://elpa.gnu.org/packages/")
      ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (company-c-headers org-journal org jinja2-mode w3m smartparens helm-fuzzier helm-fuzzy-find fancy-narrow flycheck-ledger ledger-mode flymd markdown-mode+ markdown-preview-eww markdown-preview-mode indent-guide ws-butler clean-aindent-mode stickyfunc-enhance org-projectile srefactor company-cmake with-editor git-commit async dash magit-popup company ivy swiper find-file-in-project highlight-indentation pyvenv yasnippet w3 vlf spotify speck smex markdown-mode magit helm-gtags ggtags function-args elpy dired-nav-enhance cmake-mode auto-complete-octave)))
+    (wc-mode web matlab-mode org-journal skewer-mode org jinja2-mode w3m smartparens helm-fuzzier helm-fuzzy-find fancy-narrow flycheck-ledger ledger-mode flymd markdown-mode+ markdown-preview-eww markdown-preview-mode indent-guide ws-butler clean-aindent-mode stickyfunc-enhance org-projectile srefactor company-cmake with-editor git-commit async dash magit-popup company ivy swiper find-file-in-project highlight-indentation pyvenv yasnippet w3 vlf spotify speck smex markdown-mode magit helm-gtags ggtags function-args elpy dired-nav-enhance cmake-mode auto-complete-octave)))
  '(py-shell-name "ipython3")
  '(python-shell-interpreter "python3")
  '(sr-speedbar-right-side nil)
  '(sr-speedbar-skip-other-window-p t)
- '(truncate-lines nil)
  '(vhdl-copyright-string
    "-------------------------------------------------------------------------------
--- Copyright (c) <year> <company>
+-- Copyright (c) <year> <company>    
 
 -- This program is free software: you can redistribute it and/or
 -- modify it under the terms of the GNU Lesser General Public License
@@ -69,8 +59,7 @@
 -- License along with this program. If not, see
 -- <http://www.gnu.org/licenses/>.
 
-")
- '(word-wrap t))
+"))
 
 ;; basic behaviour
 (setq search-highlight t                 ;; highlight when searching...
@@ -201,6 +190,7 @@
  '(magit-diff-added ((t (:background "#335533" :foreground "blue"))))
  '(magit-diff-added-highlight ((t (:background "#336633" :foreground "blue"))))
  '(magit-sequence-done ((t (:foreground "grey"))))
+ '(org-link ((t (:inherit link :foreground "blue" :underline t))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "DeepSkyBlue1"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "goldenrod1"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "aquamarine1"))))
@@ -545,5 +535,4 @@
 (autoload 'vc-git-root "vc-git")
 
 
-
-
+(setq-default toggle-truncate-lines t)
