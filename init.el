@@ -1,5 +1,3 @@
-; (add-to-list 'load-path "~/.emacs.d/org")
-
 (require 'package)
 (package-initialize)
 (custom-set-variables
@@ -13,7 +11,7 @@
  '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
  '(org-agenda-files
    (quote
-    ("~/Dropbox/org/work/technical_notes" "~/Dropbox/org/work/tasks" "~/Dropbox/org/work")))
+    ("~/winhome/Org/pessoal/médico.org" "~/winhome/Org/pessoal/apartamento_teodoro.org" "~/winhome/Org/pessoal/estudos.org")))
  '(org-capture-templates
    (quote
     (("w" "Work journal" plain
@@ -27,7 +25,10 @@
       "**** %<%T> - %a
 %i
 %?
-" :empty-lines 1 :tree-type week))))
+" :empty-lines 1 :tree-type week)
+     ("t" "Quick todo" entry
+      (file+olp "~/org/captured_todo.org")
+      "** TODO:" :empty-lines-before 1 :empty-lines-after 1 :kill-buffer t))))
  '(org-file-apps
    (quote
     ((auto-mode . emacs)
@@ -149,10 +150,15 @@
 
 ;; Org-mode:
 (require 'org)
+
+(define-key mode-specific-map [?a] 'org-agenda)
+
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
+
 (setq org-log-done t)
+
 (define-key global-map "\C-cc" 'org-capture)
 (define-key global-map "\C-ch" 'org-insert-heading)
 (define-key global-map "\C-cs" 'org-insert-subheading)
@@ -528,10 +534,10 @@
  )
 
 
-(require 'ede)
-(global-ede-mode)
-(projectile-global-mode)                ;may sound redundante to ede, but they complement in some ways
-(add-hook 'c-mode-common-hook   'hs-minor-mode)
+;; (require 'ede)
+;; (global-ede-mode)
+;; (projectile-global-mode)                ;may sound redundante to ede, but they complement in some ways
+;; (add-hook 'c-mode-common-hook   'hs-minor-mode)
 
 (setq projectile-mode-line "Projectile")
 
