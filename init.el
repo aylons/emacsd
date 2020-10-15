@@ -1,5 +1,3 @@
-; (add-to-list 'load-path "~/.emacs.d/org")
-
 (require 'package)
 (package-initialize)
 (custom-set-variables
@@ -14,12 +12,18 @@
  '(matlab-fill-code nil)
  '(org-agenda-files
    (quote
-    ("~/Insynq-USP/org/inbox.org" "~/Insynq-USP/org/pessoal/carro.org" "~/Insynq-USP/org/pessoal/cartoes.org" "~/Insynq-USP/org/pessoal/médico.org" "~/Insynq-USP/org/pessoal/gatos.org" "~/Insynq-USP/org/pessoal/estudos.org" "~/Insynq-USP/org/pessoal/cotidiano.org")))
+    ("~/org/inbox.org" "~/org/pessoal/carro.org" "~/org/pessoal/cartoes.org" "~/org/pessoal/médico.org" "~/org/pessoal/gatos.org" "~/org/pessoal/estudos.org" "~/org/pessoal/cotidiano.org")))
  '(org-capture-templates
    (quote
     (("j" "Journal entry" plain
       (file+olp+datetree "~/Dropbox/org/journal/journal.org")
-      "\"%K - %a\\n%i\\n%?\\n\""))))
+      "**** %<%T> - %a
+%i
+%?
+" :empty-lines 1 :tree-type week)
+     ("t" "Quick todo" entry
+      (file+olp "~/org/captured_todo.org")
+      "** TODO:" :empty-lines-before 1 :empty-lines-after 1 :kill-buffer t))))
  '(org-file-apps
    (quote
     ((auto-mode . emacs)
@@ -138,10 +142,15 @@
 
 ;; Org-mode:
 (require 'org)
+
+(define-key mode-specific-map [?a] 'org-agenda)
+
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
+
 (setq org-log-done t)
+
 (define-key global-map "\C-cc" 'org-capture)
 (define-key global-map "\C-ch" 'org-insert-heading)
 (define-key global-map "\C-cs" 'org-insert-subheading)
@@ -187,6 +196,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Anonymous Pro" :foundry "unknown" :slant normal :weight normal :height 128 :width normal))))
+ '(ediff-even-diff-A ((t (:background "dim gray"))))
+ '(ediff-even-diff-Ancestor ((t (:background "dim gray"))))
+ '(ediff-even-diff-B ((t (:background "dim gray"))))
+ '(ediff-even-diff-C ((t (:background "dim gray"))))
+ '(ediff-odd-diff-A ((t (:background "dim gray"))))
+ '(ediff-odd-diff-B ((t (:background "dim gray"))))
+ '(ediff-odd-diff-C ((t (:background "dim gray"))))
  '(magit-diff-added ((t (:background "#335533" :foreground "blue"))))
  '(magit-diff-added-highlight ((t (:background "#336633" :foreground "blue"))))
  '(magit-sequence-done ((t (:foreground "grey"))))
@@ -518,10 +534,10 @@
  )
 
 
-(require 'ede)
-(global-ede-mode)
-(projectile-global-mode)                ;may sound redundante to ede, but they complement in some ways
-(add-hook 'c-mode-common-hook   'hs-minor-mode)
+;; (require 'ede)
+;; (global-ede-mode)
+;; (projectile-global-mode)                ;may sound redundante to ede, but they complement in some ways
+;; (add-hook 'c-mode-common-hook   'hs-minor-mode)
 
 (setq projectile-mode-line "Projectile")
 
