@@ -12,7 +12,7 @@
  '(matlab-fill-code nil)
  '(org-agenda-files
    (quote
-    ("~/org/inbox.org" "~/org/pessoal/carro.org" "~/org/pessoal/cartoes.org" "~/org/pessoal/médico.org" "~/org/pessoal/gatos.org" "~/org/pessoal/estudos.org" "~/org/pessoal/cotidiano.org")))
+    ("~/org/inbox.org" "~/org/pessoal")))
  '(org-capture-templates
    (quote
     (("j" "Journal entry" plain
