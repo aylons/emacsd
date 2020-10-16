@@ -5,17 +5,18 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (wheatgrass)))
+ '(custom-enabled-themes '(wheatgrass))
  '(helm-exit-idle-delay 0.01)
  '(inhibit-startup-screen t)
- '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
+ '(magit-log-arguments '("--graph" "--color" "--decorate" "-n256"))
  '(matlab-fill-code nil)
- '(org-agenda-files
-   (quote
-    ("~/org/inbox.org" "~/org/pessoal")))
+ '(org-agenda-files '("~/org/inbox.org" "~/org/pessoal"))
+ '(org-agenda-skip-deadline-if-done t)
+ '(org-agenda-skip-scheduled-if-deadline-is-shown t)
+ '(org-agenda-skip-scheduled-if-done t)
+ '(org-agenda-skip-timestamp-if-done t)
  '(org-capture-templates
-   (quote
-    (("j" "Journal entry" plain
+   '(("j" "Journal entry" plain
       (file+olp+datetree "~/Dropbox/org/journal/journal.org")
       "**** %<%T> - %a
 %i
@@ -23,24 +24,20 @@
 " :empty-lines 1 :tree-type week)
      ("t" "Quick todo" entry
       (file+olp "~/org/captured_todo.org")
-      "** TODO:" :empty-lines-before 1 :empty-lines-after 1 :kill-buffer t))))
+      "** TODO:" :empty-lines-before 1 :empty-lines-after 1 :kill-buffer t)))
  '(org-file-apps
-   (quote
-    ((auto-mode . emacs)
+   '((auto-mode . emacs)
      ("\\.mm\\'" . default)
      ("\\.x?html?\\'" . default)
-     ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1"))))
+     ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1")))
  '(org-journal-dir "~/Dropbox/org/journal")
  '(org-todo-keywords
-   (quote
-    ((sequence "TODO(t)" "DONE(d)" "WAITING(w)" "SOMEDAY(s)" "NEXT(s)"))))
+   '((sequence "TODO(t)" "DONE(d)" "WAITING(w)" "SOMEDAY(s)" "NEXT(s)")))
  '(package-archives
-   (quote
-    (("gnu" . "http://elpa.gnu.org/packages/")
-     ("melpa" . "https://melpa.org/packages/"))))
+   '(("gnu" . "http://elpa.gnu.org/packages/")
+     ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   (quote
-    (wc-mode web matlab-mode org-journal skewer-mode org jinja2-mode w3m smartparens helm-fuzzier helm-fuzzy-find fancy-narrow flycheck-ledger ledger-mode flymd markdown-mode+ markdown-preview-eww markdown-preview-mode indent-guide ws-butler clean-aindent-mode stickyfunc-enhance org-projectile srefactor company-cmake with-editor git-commit async dash magit-popup company ivy swiper find-file-in-project highlight-indentation pyvenv yasnippet w3 vlf spotify speck smex markdown-mode magit helm-gtags ggtags function-args elpy dired-nav-enhance cmake-mode auto-complete-octave)))
+   '(org-superstar wc-mode web matlab-mode org-journal skewer-mode org jinja2-mode w3m smartparens helm-fuzzier helm-fuzzy-find fancy-narrow flycheck-ledger ledger-mode flymd markdown-mode+ markdown-preview-eww markdown-preview-mode indent-guide ws-butler clean-aindent-mode stickyfunc-enhance org-projectile srefactor company-cmake with-editor git-commit async dash magit-popup company ivy swiper find-file-in-project highlight-indentation pyvenv yasnippet w3 vlf spotify speck smex markdown-mode magit helm-gtags ggtags function-args elpy dired-nav-enhance cmake-mode auto-complete-octave))
  '(py-shell-name "ipython3")
  '(python-shell-interpreter "python3")
  '(sr-speedbar-right-side nil)
@@ -141,28 +138,30 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; Org-mode:
-(require 'org)
+;(require 'org)
 
 (define-key mode-specific-map [?a] 'org-agenda)
 
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
+(eval-after-load "org"
+  '(progn
+     (define-prefix-command 'org-todo-state-map)
 
-(setq org-log-done t)
+     (define-key org-mode-map "\C-cx" 'org-todo-state-map)
 
-(define-key global-map "\C-cc" 'org-capture)
-(define-key global-map "\C-ch" 'org-insert-heading)
-(define-key global-map "\C-cs" 'org-insert-subheading)
+     (define-key org-todo-state-map "x"
+       #'(lambda nil (interactive) (org-todo "CANCELLED")))
+     (define-key org-todo-state-map "d"
+       #'(lambda nil (interactive) (org-todo "DONE")))
+     (define-key org-todo-state-map "f"
+       #'(lambda nil (interactive) (org-todo "DEFERRED")))
+     (define-key org-todo-state-map "l"
+       #'(lambda nil (interactive) (org-todo "DELEGATED")))
+     (define-key org-todo-state-map "s"
+       #'(lambda nil (interactive) (org-todo "STARTED")))
+     (define-key org-todo-state-map "w"
+       #'(lambda nil (interactive) (org-todo "WAITING")))))
 
 ;;(load "~/org-files.el")
-
-(add-to-list 'org-modules 'org-timer)
-(setq org-timer-default-timer 25)
-
-(add-hook 'org-clock-in-hook (lambda ()
-      (if (not org-timer-current-timer) 
-		  (org-timer-set-timer '(16)))))
 
 (require 'ox-latex)
 
