@@ -541,6 +541,10 @@
 (setq projectile-mode-line "Projectile")
 
 (put 'dired-find-alternate-file 'disabled nil)
+(define-key dired-mode-map (kbd "C-l")
+    (lambda ()
+      (interactive)
+      (find-alternate-file "..")))
 
 (require 're-builder)
 (setq reb-re-syntax 'string)
