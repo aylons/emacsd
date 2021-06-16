@@ -245,6 +245,7 @@
 
 (add-hook 'inferior-octave-mode-hook
           (lambda ()
+            (setq inferior-octave-program "/app")
             (turn-on-font-lock)
             (define-key inferior-octave-mode-map [up]
               'comint-previous-input)
@@ -318,8 +319,9 @@
 ;; 		   (setq unread-command-events
 ;; 			 (listify-key-sequence key))))))))))
 
-(add-to-list 'load-path "~/.emacs.d/matlab/")
-(require 'matlab-load)
+;;(add-to-list 'load-path "~/.emacs.d/matlab/")
+(add-hook 'matlab-mode 'rainbow-delimiters-mode)
+
 
 ;; for GDB/debugging in general
 (global-set-key (kbd "<f10>") 'gud-cont)
