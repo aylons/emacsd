@@ -19,7 +19,8 @@
  '(org-agenda-skip-scheduled-if-done t)
  '(org-agenda-skip-timestamp-if-done t)
  '(org-capture-templates
-   '(("j" "Journal entry" plain
+   (quote
+    (("j" "Journal entry" plain
       (file+olp+datetree "~/Dropbox/org/journal/journal.org")
       "**** %<%T> - %a
 %i
@@ -27,15 +28,17 @@
 " :empty-lines 1 :tree-type week)
      ("t" "Quick todo" entry
       (file+olp "~/org/captured_todo.org")
-      "** TODO:" :empty-lines-before 1 :empty-lines-after 1 :kill-buffer t)))
+      "** TODO:" :empty-lines-before 1 :empty-lines-after 1 :kill-buffer t))))
  '(org-file-apps
-   '((auto-mode . emacs)
+   (quote
+    ((auto-mode . emacs)
      ("\\.mm\\'" . default)
      ("\\.x?html?\\'" . default)
-     ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1")))
+     ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1"))))
  '(org-journal-dir "~/Dropbox/org/journal")
  '(org-todo-keywords
-   '((sequence "TODO(t)" "DONE(d)" "WAITING(w)" "SOMEDAY(s)" "NEXT(s)")))
+   (quote
+    ((sequence "TODO(t)" "DONE(d)" "WAITING(w)" "SOMEDAY(s)" "NEXT(s)"))))
  '(package-archives
    '(("gnu" . "http://elpa.gnu.org/packages/")
      ("melpa" . "https://melpa.org/packages/")))
