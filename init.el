@@ -562,3 +562,12 @@
 
 
 (setq-default toggle-truncate-lines t)
+
+; Kill all dired buffers
+(defun kill-dired-buffers ()
+  (interactive)
+  (mapc (lambda (buffer) 
+          (when (eq 'dired-mode (buffer-local-value 'major-mode buffer)) 
+            (kill-buffer buffer))) 
+        (buffer-list)))
+(define-key dired-mode-map (kbd "C-x K") 'kill-dired-buffers)
