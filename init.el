@@ -45,25 +45,56 @@
  '(python-shell-interpreter "python3")
  '(sr-speedbar-right-side nil)
  '(sr-speedbar-skip-other-window-p t)
- '(vhdl-copyright-string
+ '(tab-stop-list (quote (2)))
+ '(truncate-lines t)
+ '(vhdl-clock-edge-condition (quote function))
+ '(vhdl-clock-name "clk_i")
+ '(vhdl-copyright-string "
+-- Copyright (c) <year> <company>
+")
+ '(vhdl-file-header
    "-------------------------------------------------------------------------------
--- Copyright (c) <year> <company>    
+-- Title      : <title string>
+-- Project    : <project>
+-------------------------------------------------------------------------------
+-- File       : <filename>
+-- Author     : <author>
+-- Company    : <company>
+-- Created    : <date>
+-- Last update: <date>
+-- Standard   : <standard>
+<projectdesc>-------------------------------------------------------------------------------
+-- Description: <cursor>
+<copyright>-------------------------------------------------------------------------------
+-- Revisions  :
+-- Date        Version  Author  Description
+-- <date>  1.0      <login>	Created
+-------------------------------------------------------------------------------
 
--- This program is free software: you can redistribute it and/or
--- modify it under the terms of the GNU Lesser General Public License
--- as published by the Free Software Foundation, either version 3 of
--- the License, or (at your option) any later version.
---
--- This program is distributed in the hope that it will be useful, but
--- WITHOUT ANY WARRANTY; without even the implied warranty of
--- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
--- Lesser General Public License for more details.
---
--- You should have received a copy of the GNU Lesser General Public
--- License along with this program. If not, see
--- <http://www.gnu.org/licenses/>.
+")
+ '(vhdl-optional-labels (quote all))
+ '(vhdl-reset-active-high t)
+ '(vhdl-reset-kind (quote sync))
+ '(vhdl-reset-name "rst_i")
+ '(vhdl-standard (quote (8 (math))))
+ '(vhdl-stutter-mode t)
+ '(vhdl-testbench-initialize-signals nil)
+ '(vhdl-testbench-statements
+   "  -- clock generation
+ clk_i <= not clk_i after clk_period/2;
 
-"))
+  -- waveform generation
+  WaveGen_Proc: process
+  begin
+    -- insert signal assignments here
+
+    wait until clk_i = '1';
+  end process WaveGen_Proc;
+")
+ '(visual-line-fringe-indicators (quote (left-curly-arrow right-curly-arrow)))
+ '(word-wrap nil))
+
+(package-initialize)
 
 ;; basic behaviour
 (setq search-highlight t                 ;; highlight when searching...
