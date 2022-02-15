@@ -174,7 +174,18 @@
 	       ("\\section{%s}" . "\\section*{%s}")
 	       ("\\subsection{%s}" . "\\subsection*{%s}")
 	       ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
-	                   )
+	     )
+;; from https://emacs.stackexchange.com/questions/47393/org-export-latex-pdf-output-does-not-render-svg
+     (setq org-latex-pdf-process
+       (let
+           ((cmd (concat "pdflatex -shell-escape -interaction nonstopmode"
+                 " --synctex=1"
+                 " -output-directory %o %f")))
+         (list cmd
+           "cd %o; if test -r %b.idx; then makeindex %b.idx; fi"
+           "cd %o; bibtex %b"
+           cmd
+           cmd)))
 
 ;; Octave mode
 (autoload 'octave-mode "octave-mode" nil t)
