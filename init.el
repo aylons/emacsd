@@ -1,5 +1,8 @@
+(if (version< emacs-version "26.3")
+    (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
+(server-start)
+;; overcome bug in 26.1
 (require 'package)
-(package-initialize)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
