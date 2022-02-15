@@ -8,7 +8,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(wheatgrass))
+ '(Package-selected-packages
+   (quote
+    (org-superstar wc-mode web matlab-mode org-journal skewer-mode org jinja2-mode w3m smartparens helm-fuzzier helm-fuzzy-find fancy-narrow flycheck-ledger ledger-mode flymd markdown-mode+ markdown-preview-eww markdown-preview-mode indent-guide ws-butler clean-aindent-mode stickyfunc-enhance org-projectile srefactor company-cmake with-editor git-commit async dash magit-popup company ivy swiper find-file-in-project highlight-indentation pyvenv yasnippet w3 vlf spotify speck smex markdown-mode magit helm-gtags ggtags function-args elpy dired-nav-enhance cmake-mode auto-complete-octave)))
+ '(custom-enabled-themes (quote (tango)))
+ '(dired-listing-switches "-alG")
+ '(global-linum-mode t)
+ '(global-visual-line-mode t)
  '(helm-exit-idle-delay 0.01)
  '(inhibit-startup-screen t)
  '(magit-log-arguments '("--graph" "--color" "--decorate" "-n256"))
@@ -43,7 +49,8 @@
    '(("gnu" . "http://elpa.gnu.org/packages/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(org-superstar wc-mode web matlab-mode org-journal skewer-mode org jinja2-mode w3m smartparens helm-fuzzier helm-fuzzy-find fancy-narrow flycheck-ledger ledger-mode flymd markdown-mode+ markdown-preview-eww markdown-preview-mode indent-guide ws-butler clean-aindent-mode stickyfunc-enhance org-projectile srefactor company-cmake with-editor git-commit async dash magit-popup company ivy swiper find-file-in-project highlight-indentation pyvenv yasnippet w3 vlf spotify speck smex markdown-mode magit helm-gtags ggtags function-args elpy dired-nav-enhance cmake-mode auto-complete-octave))
+   (quote
+    (htmlize image-dired+ image+ org-pdftools company-c-headers ws-butler web wc-mode w3m vlf swiper stickyfunc-enhance srefactor spotify smex smartparens skewer-mode org-superstar org-projectile org-journal matlab-mode markdown-preview-mode markdown-preview-eww markdown-mode+ magit-popup magit ledger-mode jinja2-mode indent-guide helm-gtags helm-fuzzy-find helm-fuzzier gnu-elpa-keyring-update ggtags function-args flymd flycheck-ledger find-file-in-project fancy-narrow elpy cmake-mode clean-aindent-mode)))
  '(py-shell-name "ipython3")
  '(python-shell-interpreter "python3")
  '(sr-speedbar-right-side nil)
