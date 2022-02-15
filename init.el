@@ -20,7 +20,6 @@
  '(magit-diff-refine-hunk t)
  '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
  '(matlab-fill-code nil)
- '(org-agenda-files '("~/org/inbox.org" "~/org/pessoal"))
  '(org-agenda-skip-deadline-if-done t)
  '(org-agenda-skip-scheduled-if-deadline-is-shown t)
  '(org-agenda-skip-scheduled-if-done t)
@@ -42,7 +41,6 @@
      ("\\.mm\\'" . default)
      ("\\.x?html?\\'" . default)
      ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1"))))
- '(org-journal-dir "~/Dropbox/org/journal")
  '(org-todo-keywords
    (quote
     ((sequence "TODO(t)" "DONE(d)" "WAITING(w)" "SOMEDAY(s)" "NEXT(s)"))))
@@ -631,3 +629,5 @@
             (kill-buffer buffer))) 
         (buffer-list)))
 (define-key dired-mode-map (kbd "C-x K") 'kill-dired-buffers)
+
+(load-file "local_init.el")
