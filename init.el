@@ -629,3 +629,5 @@
 (require 'org-journal)
 (define-key org-mode-map (kbd "C-c s") 'org-cut-subtree)
 
+                                        ; Fusesoc .core files are YAML files
+(add-to-list 'auto-mode-alist '("\\.core" . yaml-mode))
