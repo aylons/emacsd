@@ -20,27 +20,20 @@
  '(magit-diff-refine-hunk t)
  '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
  '(matlab-fill-code nil)
+ '(org-agenda-files nil)
  '(org-agenda-skip-deadline-if-done t)
  '(org-agenda-skip-scheduled-if-deadline-is-shown t)
  '(org-agenda-skip-scheduled-if-done t)
  '(org-agenda-skip-timestamp-if-done t)
- '(org-capture-templates
-   (quote
-    (("j" "Journal entry" plain
-      (file+olp+datetree "~/Dropbox/org/journal/journal.org")
-      "**** %<%T> - %a
-%i
-%?
-" :empty-lines 1 :tree-type week)
-     ("t" "Quick todo" entry
-      (file+olp "~/org/captured_todo.org")
-      "** TODO:" :empty-lines-before 1 :empty-lines-after 1 :kill-buffer t))))
  '(org-file-apps
    (quote
     ((auto-mode . emacs)
      ("\\.mm\\'" . default)
      ("\\.x?html?\\'" . default)
      ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1"))))
+ '(org-journal-dir "~/org/journal")
+ '(org-journal-file-format "%Y-%V_%m-%d.org")
+ '(org-journal-file-type (quote weekly))
  '(org-todo-keywords
    (quote
     ((sequence "TODO(t)" "DONE(d)" "WAITING(w)" "SOMEDAY(s)" "NEXT(s)"))))
@@ -50,9 +43,10 @@
      ("melpa" . "https://melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (htmlize image-dired+ image+ org-pdftools company-c-headers ws-butler web wc-mode w3m vlf swiper stickyfunc-enhance srefactor spotify smex smartparens skewer-mode org-superstar org-projectile org-journal matlab-mode markdown-preview-mode markdown-preview-eww markdown-mode+ magit-popup magit ledger-mode jinja2-mode indent-guide helm-gtags helm-fuzzy-find helm-fuzzier gnu-elpa-keyring-update ggtags function-args flymd flycheck-ledger find-file-in-project fancy-narrow elpy cmake-mode clean-aindent-mode)))
+    (org-journal-list htmlize image-dired+ image+ org-pdftools company-c-headers ws-butler web wc-mode w3m vlf swiper stickyfunc-enhance srefactor spotify smex smartparens skewer-mode org-superstar org-projectile org-journal matlab-mode markdown-preview-mode markdown-preview-eww markdown-mode+ magit-popup magit ledger-mode jinja2-mode indent-guide helm-gtags helm-fuzzy-find helm-fuzzier gnu-elpa-keyring-update ggtags function-args flymd flycheck-ledger find-file-in-project fancy-narrow elpy cmake-mode clean-aindent-mode)))
  '(py-shell-name "ipython3")
  '(python-shell-interpreter "python3")
+ '(smerge-command-prefix "")
  '(sr-speedbar-right-side nil)
  '(sr-speedbar-skip-other-window-p t)
  '(tab-stop-list (quote (2)))
@@ -630,4 +624,8 @@
         (buffer-list)))
 (define-key dired-mode-map (kbd "C-x K") 'kill-dired-buffers)
 
-(load-file "local_init.el")
+(load-file "./.emacs.d/local_init.el")
+
+(require 'org-journal)
+(define-key org-mode-map (kbd "C-c s") 'org-cut-subtree)
+
