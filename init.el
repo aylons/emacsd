@@ -9,16 +9,95 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(Package-selected-packages
-   (quote
-    (org-superstar wc-mode web matlab-mode org-journal skewer-mode org jinja2-mode w3m smartparens helm-fuzzier helm-fuzzy-find fancy-narrow flycheck-ledger ledger-mode flymd markdown-mode+ markdown-preview-eww markdown-preview-mode indent-guide ws-butler clean-aindent-mode stickyfunc-enhance org-projectile srefactor company-cmake with-editor git-commit async dash magit-popup company ivy swiper find-file-in-project highlight-indentation pyvenv yasnippet w3 vlf spotify speck smex markdown-mode magit helm-gtags ggtags function-args elpy dired-nav-enhance cmake-mode auto-complete-octave)))
- '(custom-enabled-themes (quote (tango)))
+   '(org-superstar wc-mode web matlab-mode org-journal skewer-mode org jinja2-mode w3m smartparens helm-fuzzier helm-fuzzy-find fancy-narrow flycheck-ledger ledger-mode flymd markdown-mode+ markdown-preview-eww markdown-preview-mode indent-guide ws-butler clean-aindent-mode stickyfunc-enhance org-projectile srefactor company-cmake with-editor git-commit async dash magit-popup company ivy swiper find-file-in-project highlight-indentation pyvenv yasnippet w3 vlf spotify speck smex markdown-mode magit helm-gtags ggtags function-args elpy dired-nav-enhance cmake-mode auto-complete-octave))
+ '(connection-local-criteria-alist
+   '(((:application tramp :protocol "flatpak")
+      tramp-container-connection-local-default-flatpak-profile)
+     ((:application tramp)
+      tramp-connection-local-default-system-profile tramp-connection-local-default-shell-profile)))
+ '(connection-local-profile-alist
+   '((tramp-container-connection-local-default-flatpak-profile
+      (tramp-remote-path "/app/bin" tramp-default-remote-path "/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin" "/local/bin" "/local/freeware/bin" "/local/gnu/bin" "/usr/freeware/bin" "/usr/pkg/bin" "/usr/contrib/bin" "/opt/bin" "/opt/sbin" "/opt/local/bin"))
+     (tramp-connection-local-darwin-ps-profile
+      (tramp-process-attributes-ps-args "-acxww" "-o" "pid,uid,user,gid,comm=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" "-o" "state=abcde" "-o" "ppid,pgid,sess,tty,tpgid,minflt,majflt,time,pri,nice,vsz,rss,etime,pcpu,pmem,args")
+      (tramp-process-attributes-ps-format
+       (pid . number)
+       (euid . number)
+       (user . string)
+       (egid . number)
+       (comm . 52)
+       (state . 5)
+       (ppid . number)
+       (pgrp . number)
+       (sess . number)
+       (ttname . string)
+       (tpgid . number)
+       (minflt . number)
+       (majflt . number)
+       (time . tramp-ps-time)
+       (pri . number)
+       (nice . number)
+       (vsize . number)
+       (rss . number)
+       (etime . tramp-ps-time)
+       (pcpu . number)
+       (pmem . number)
+       (args)))
+     (tramp-connection-local-busybox-ps-profile
+      (tramp-process-attributes-ps-args "-o" "pid,user,group,comm=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" "-o" "stat=abcde" "-o" "ppid,pgid,tty,time,nice,etime,args")
+      (tramp-process-attributes-ps-format
+       (pid . number)
+       (user . string)
+       (group . string)
+       (comm . 52)
+       (state . 5)
+       (ppid . number)
+       (pgrp . number)
+       (ttname . string)
+       (time . tramp-ps-time)
+       (nice . number)
+       (etime . tramp-ps-time)
+       (args)))
+     (tramp-connection-local-bsd-ps-profile
+      (tramp-process-attributes-ps-args "-acxww" "-o" "pid,euid,user,egid,egroup,comm=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" "-o" "state,ppid,pgid,sid,tty,tpgid,minflt,majflt,time,pri,nice,vsz,rss,etimes,pcpu,pmem,args")
+      (tramp-process-attributes-ps-format
+       (pid . number)
+       (euid . number)
+       (user . string)
+       (egid . number)
+       (group . string)
+       (comm . 52)
+       (state . string)
+       (ppid . number)
+       (pgrp . number)
+       (sess . number)
+       (ttname . string)
+       (tpgid . number)
+       (minflt . number)
+       (majflt . number)
+       (time . tramp-ps-time)
+       (pri . number)
+       (nice . number)
+       (vsize . number)
+       (rss . number)
+       (etime . number)
+       (pcpu . number)
+       (pmem . number)
+       (args)))
+     (tramp-connection-local-default-shell-profile
+      (shell-file-name . "/bin/sh")
+      (shell-command-switch . "-c"))
+     (tramp-connection-local-default-system-profile
+      (path-separator . ":")
+      (null-device . "/dev/null"))))
+ '(custom-enabled-themes '(modus-operandi-tinted))
+ '(diff-switches "-u")
  '(dired-listing-switches "-alG")
- '(global-linum-mode t)
  '(global-visual-line-mode t)
  '(helm-exit-idle-delay 0.01)
  '(inhibit-startup-screen t)
  '(magit-diff-refine-hunk t)
- '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
+ '(magit-log-arguments '("--graph" "--color" "--decorate" "-n256"))
  '(matlab-fill-code nil)
  '(org-agenda-files nil)
  '(org-agenda-skip-deadline-if-done t)
@@ -26,76 +105,43 @@
  '(org-agenda-skip-scheduled-if-done t)
  '(org-agenda-skip-timestamp-if-done t)
  '(org-file-apps
-   (quote
-    ((auto-mode . emacs)
+   '((auto-mode . emacs)
      ("\\.mm\\'" . default)
      ("\\.x?html?\\'" . default)
-     ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1"))))
+     ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1")))
  '(org-journal-dir "~/org/journal")
  '(org-journal-file-format "%Y-%V_%m-%d.org")
- '(org-journal-file-type (quote weekly))
+ '(org-journal-file-type 'weekly)
  '(org-todo-keywords
-   (quote
-    ((sequence "TODO(t)" "DONE(d)" "WAITING(w)" "SOMEDAY(s)" "NEXT(s)"))))
+   '((sequence "TODO(t)" "DONE(d)" "WAITING(w)" "SOMEDAY(s)" "NEXT(s)")))
  '(package-archives
-   (quote
-    (("gnu" . "https://elpa.gnu.org/packages/")
-     ("melpa" . "https://melpa.org/packages/"))))
+   '(("gnu" . "https://elpa.gnu.org/packages/")
+     ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   (quote
-    (org-journal-list htmlize image-dired+ image+ org-pdftools company-c-headers ws-butler web wc-mode w3m vlf swiper stickyfunc-enhance srefactor spotify smex smartparens skewer-mode org-superstar org-projectile org-journal matlab-mode markdown-preview-mode markdown-preview-eww markdown-mode+ magit-popup magit ledger-mode jinja2-mode indent-guide helm-gtags helm-fuzzy-find helm-fuzzier gnu-elpa-keyring-update ggtags function-args flymd flycheck-ledger find-file-in-project fancy-narrow elpy cmake-mode clean-aindent-mode)))
+   '(org-journal org-journal-list htmlize image-dired+ image+ org-pdftools company-c-headers ws-butler web wc-mode w3m vlf swiper stickyfunc-enhance srefactor spotify smex smartparens skewer-mode org-superstar org-projectile matlab-mode markdown-preview-mode markdown-preview-eww markdown-mode+ magit-popup magit ledger-mode jinja2-mode indent-guide helm-gtags helm-fuzzy-find helm-fuzzier gnu-elpa-keyring-update ggtags function-args flymd flycheck-ledger find-file-in-project fancy-narrow elpy cmake-mode clean-aindent-mode))
  '(py-shell-name "ipython3")
  '(python-shell-interpreter "python3")
- '(smerge-command-prefix "")
+ '(smerge-command-prefix "\33")
  '(sr-speedbar-right-side nil)
  '(sr-speedbar-skip-other-window-p t)
- '(tab-stop-list (quote (2)))
+ '(tab-stop-list '(2))
  '(truncate-lines t)
- '(vhdl-clock-edge-condition (quote function))
+ '(vhdl-clock-edge-condition 'function)
  '(vhdl-clock-name "clk_i")
- '(vhdl-copyright-string "
--- Copyright (c) <year> <company>
-")
+ '(vhdl-copyright-string "\12-- Copyright (c) <year> <company>\12")
  '(vhdl-file-header
-   "-------------------------------------------------------------------------------
--- Title      : <title string>
--- Project    : <project>
--------------------------------------------------------------------------------
--- File       : <filename>
--- Author     : <author>
--- Company    : <company>
--- Created    : <date>
--- Last update: <date>
--- Standard   : <standard>
-<projectdesc>-------------------------------------------------------------------------------
--- Description: <cursor>
-<copyright>-------------------------------------------------------------------------------
--- Revisions  :
--- Date        Version  Author  Description
--- <date>  1.0      <login>	Created
--------------------------------------------------------------------------------
-
-")
- '(vhdl-optional-labels (quote all))
+   "-------------------------------------------------------------------------------\12-- Title      : <title string>\12-- Project    : <project>\12-------------------------------------------------------------------------------\12-- File       : <filename>\12-- Author     : <author>\12-- Company    : <company>\12-- Created    : <date>\12-- Last update: <date>\12-- Standard   : <standard>\12<projectdesc>-------------------------------------------------------------------------------\12-- Description: <cursor>\12<copyright>-------------------------------------------------------------------------------\12-- Revisions  :\12-- Date        Version  Author  Description\12-- <date>  1.0      <login>\11Created\12-------------------------------------------------------------------------------\12\12")
+ '(vhdl-optional-labels 'all)
  '(vhdl-reset-active-high t)
- '(vhdl-reset-kind (quote sync))
+ '(vhdl-reset-kind 'sync)
  '(vhdl-reset-name "rst_i")
- '(vhdl-standard (quote (8 (math))))
+ '(vhdl-standard '(8 (math)))
  '(vhdl-stutter-mode t)
  '(vhdl-testbench-initialize-signals nil)
  '(vhdl-testbench-statements
-   "  -- clock generation
- clk_i <= not clk_i after clk_period/2;
-
-  -- waveform generation
-  WaveGen_Proc: process
-  begin
-    -- insert signal assignments here
-
-    wait until clk_i = '1';
-  end process WaveGen_Proc;
-")
- '(visual-line-fringe-indicators (quote (left-curly-arrow right-curly-arrow)))
+   "  -- clock generation\12 clk_i <= not clk_i after clk_period/2;\12\12  -- waveform generation\12  WaveGen_Proc: process\12  begin\12    -- insert signal assignments here\12\12    wait until clk_i = '1';\12  end process WaveGen_Proc;\12")
+ '(visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
+ '(wdired-allow-to-change-permissions t)
  '(word-wrap nil))
 
 (package-initialize)
@@ -104,7 +150,6 @@
 (setq search-highlight t                 ;; highlight when searching...
 	  query-replace-highlight t)             ;; ...and replacing
 (fset 'yes-or-no-p 'y-or-n-p)            ;; enable y/n answers to yes/n
-(linum-mode t)
 (column-number-mode t)
 
 (setq
@@ -132,7 +177,7 @@
 (add-hook 'prog-mode-hook (lambda () (interactive) (setq show-trailing-whitespace 1)))
 
 ;; Package: clean-aindent-mode
-;;(require 'clean-aindent-mode)
+(require 'clean-aindent-mode)
 (add-hook 'prog-mode-hook 'clean-aindent-mode)
 (add-hook 'c-mode-common-hook 'ws-butler-mode)
 
@@ -142,7 +187,7 @@
 (global-set-key (kbd "M-s M-s") 'sr-speedbar-toggle)
 
 ;; Package: yasnippet
-; (require 'yasnippet)
+(require 'yasnippet)
 
 
 ;; Magit configuration
@@ -469,7 +514,6 @@
 
 
 (require 'helm)
-(require 'helm-config)
 
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
 ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
@@ -626,7 +670,7 @@
 
 (load-file "./.emacs.d/local_init.el")
 
-(require 'org-journal)
+
 (define-key org-mode-map (kbd "C-c s") 'org-cut-subtree)
 
                                         ; Fusesoc .core files are YAML files
