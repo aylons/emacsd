@@ -9,88 +9,118 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(Package-selected-packages
-   '(org-superstar wc-mode web matlab-mode org-journal skewer-mode org jinja2-mode w3m smartparens helm-fuzzier helm-fuzzy-find fancy-narrow flycheck-ledger ledger-mode flymd markdown-mode+ markdown-preview-eww markdown-preview-mode indent-guide ws-butler clean-aindent-mode stickyfunc-enhance org-projectile srefactor company-cmake with-editor git-commit async dash magit-popup company ivy swiper find-file-in-project highlight-indentation pyvenv yasnippet w3 vlf spotify speck smex markdown-mode magit helm-gtags ggtags function-args elpy dired-nav-enhance cmake-mode auto-complete-octave))
+   '(org-superstar wc-mode web matlab-mode org-journal skewer-mode org
+                   jinja2-mode w3m smartparens helm-fuzzier
+                   helm-fuzzy-find flycheck-ledger ledger-mode flymd
+                   markdown-mode+ markdown-preview-eww
+                   markdown-preview-mode indent-guide ws-butler
+                   org-projectile srefactor company-cmake with-editor
+                   git-commit async dash magit-popup company ivy
+                   swiper find-file-in-project highlight-indentation
+                   pyvenv yasnippet w3 vlf spotify speck smex
+                   markdown-mode magit helm-gtags ggtags function-args
+                   elpy dired-nav-enhance cmake-mode
+                   auto-complete-octave))
  '(connection-local-criteria-alist
-   '(((:application tramp :protocol "flatpak")
+   '(((:machine "bruno-home") bruno-home-vars)
+     ((:application tramp :protocol "kubernetes")
+      tramp-kubernetes-connection-local-default-profile)
+     ((:application tramp :protocol "flatpak")
       tramp-container-connection-local-default-flatpak-profile)
      ((:application tramp)
-      tramp-connection-local-default-system-profile tramp-connection-local-default-shell-profile)))
+      tramp-connection-local-default-system-profile
+      tramp-connection-local-default-shell-profile)))
  '(connection-local-profile-alist
-   '((tramp-container-connection-local-default-flatpak-profile
-      (tramp-remote-path "/app/bin" tramp-default-remote-path "/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin" "/local/bin" "/local/freeware/bin" "/local/gnu/bin" "/usr/freeware/bin" "/usr/pkg/bin" "/usr/contrib/bin" "/opt/bin" "/opt/sbin" "/opt/local/bin"))
+   '((bruno-home-vars (company-gtags--executable-connection))
+     (tramp-kubernetes-connection-local-default-profile
+      (tramp-config-check . tramp-kubernetes--current-context-data)
+      (tramp-extra-expand-args 97
+                               (tramp-kubernetes--container
+                                (car tramp-current-connection))
+                               104
+                               (tramp-kubernetes--pod
+                                (car tramp-current-connection))
+                               120
+                               (tramp-kubernetes--context-namespace
+                                (car tramp-current-connection))))
+     (tramp-container-connection-local-default-flatpak-profile
+      (tramp-remote-path "/app/bin" tramp-default-remote-path "/bin"
+                         "/usr/bin" "/sbin" "/usr/sbin"
+                         "/usr/local/bin" "/usr/local/sbin"
+                         "/local/bin" "/local/freeware/bin"
+                         "/local/gnu/bin" "/usr/freeware/bin"
+                         "/usr/pkg/bin" "/usr/contrib/bin" "/opt/bin"
+                         "/opt/sbin" "/opt/local/bin"))
      (tramp-connection-local-darwin-ps-profile
-      (tramp-process-attributes-ps-args "-acxww" "-o" "pid,uid,user,gid,comm=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" "-o" "state=abcde" "-o" "ppid,pgid,sess,tty,tpgid,minflt,majflt,time,pri,nice,vsz,rss,etime,pcpu,pmem,args")
-      (tramp-process-attributes-ps-format
-       (pid . number)
-       (euid . number)
-       (user . string)
-       (egid . number)
-       (comm . 52)
-       (state . 5)
-       (ppid . number)
-       (pgrp . number)
-       (sess . number)
-       (ttname . string)
-       (tpgid . number)
-       (minflt . number)
-       (majflt . number)
-       (time . tramp-ps-time)
-       (pri . number)
-       (nice . number)
-       (vsize . number)
-       (rss . number)
-       (etime . tramp-ps-time)
-       (pcpu . number)
-       (pmem . number)
-       (args)))
+      (tramp-process-attributes-ps-args "-acxww" "-o"
+                                        "pid,uid,user,gid,comm=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                        "-o" "state=abcde" "-o"
+                                        "ppid,pgid,sess,tty,tpgid,minflt,majflt,time,pri,nice,vsz,rss,etime,pcpu,pmem,args")
+      (tramp-process-attributes-ps-format (pid . number)
+                                          (euid . number)
+                                          (user . string)
+                                          (egid . number) (comm . 52)
+                                          (state . 5) (ppid . number)
+                                          (pgrp . number)
+                                          (sess . number)
+                                          (ttname . string)
+                                          (tpgid . number)
+                                          (minflt . number)
+                                          (majflt . number)
+                                          (time . tramp-ps-time)
+                                          (pri . number)
+                                          (nice . number)
+                                          (vsize . number)
+                                          (rss . number)
+                                          (etime . tramp-ps-time)
+                                          (pcpu . number)
+                                          (pmem . number) (args)))
      (tramp-connection-local-busybox-ps-profile
-      (tramp-process-attributes-ps-args "-o" "pid,user,group,comm=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" "-o" "stat=abcde" "-o" "ppid,pgid,tty,time,nice,etime,args")
-      (tramp-process-attributes-ps-format
-       (pid . number)
-       (user . string)
-       (group . string)
-       (comm . 52)
-       (state . 5)
-       (ppid . number)
-       (pgrp . number)
-       (ttname . string)
-       (time . tramp-ps-time)
-       (nice . number)
-       (etime . tramp-ps-time)
-       (args)))
+      (tramp-process-attributes-ps-args "-o"
+                                        "pid,user,group,comm=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                        "-o" "stat=abcde" "-o"
+                                        "ppid,pgid,tty,time,nice,etime,args")
+      (tramp-process-attributes-ps-format (pid . number)
+                                          (user . string)
+                                          (group . string) (comm . 52)
+                                          (state . 5) (ppid . number)
+                                          (pgrp . number)
+                                          (ttname . string)
+                                          (time . tramp-ps-time)
+                                          (nice . number)
+                                          (etime . tramp-ps-time)
+                                          (args)))
      (tramp-connection-local-bsd-ps-profile
-      (tramp-process-attributes-ps-args "-acxww" "-o" "pid,euid,user,egid,egroup,comm=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" "-o" "state,ppid,pgid,sid,tty,tpgid,minflt,majflt,time,pri,nice,vsz,rss,etimes,pcpu,pmem,args")
-      (tramp-process-attributes-ps-format
-       (pid . number)
-       (euid . number)
-       (user . string)
-       (egid . number)
-       (group . string)
-       (comm . 52)
-       (state . string)
-       (ppid . number)
-       (pgrp . number)
-       (sess . number)
-       (ttname . string)
-       (tpgid . number)
-       (minflt . number)
-       (majflt . number)
-       (time . tramp-ps-time)
-       (pri . number)
-       (nice . number)
-       (vsize . number)
-       (rss . number)
-       (etime . number)
-       (pcpu . number)
-       (pmem . number)
-       (args)))
+      (tramp-process-attributes-ps-args "-acxww" "-o"
+                                        "pid,euid,user,egid,egroup,comm=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                        "-o"
+                                        "state,ppid,pgid,sid,tty,tpgid,minflt,majflt,time,pri,nice,vsz,rss,etimes,pcpu,pmem,args")
+      (tramp-process-attributes-ps-format (pid . number)
+                                          (euid . number)
+                                          (user . string)
+                                          (egid . number)
+                                          (group . string) (comm . 52)
+                                          (state . string)
+                                          (ppid . number)
+                                          (pgrp . number)
+                                          (sess . number)
+                                          (ttname . string)
+                                          (tpgid . number)
+                                          (minflt . number)
+                                          (majflt . number)
+                                          (time . tramp-ps-time)
+                                          (pri . number)
+                                          (nice . number)
+                                          (vsize . number)
+                                          (rss . number)
+                                          (etime . number)
+                                          (pcpu . number)
+                                          (pmem . number) (args)))
      (tramp-connection-local-default-shell-profile
-      (shell-file-name . "/bin/sh")
-      (shell-command-switch . "-c"))
+      (shell-file-name . "/bin/sh") (shell-command-switch . "-c"))
      (tramp-connection-local-default-system-profile
-      (path-separator . ":")
-      (null-device . "/dev/null"))))
- '(custom-enabled-themes '(modus-operandi-tinted))
+      (path-separator . ":") (null-device . "/dev/null"))))
+ '(custom-enabled-themes '(modus-vivendi))
  '(diff-switches "-u")
  '(dired-listing-switches "-alG")
  '(global-visual-line-mode t)
@@ -99,28 +129,76 @@
  '(magit-diff-refine-hunk t)
  '(magit-log-arguments '("--graph" "--color" "--decorate" "-n256"))
  '(matlab-fill-code nil)
- '(org-agenda-files nil)
  '(org-agenda-skip-deadline-if-done t)
  '(org-agenda-skip-scheduled-if-deadline-is-shown t)
  '(org-agenda-skip-scheduled-if-done t)
  '(org-agenda-skip-timestamp-if-done t)
  '(org-file-apps
-   '((auto-mode . emacs)
-     ("\\.mm\\'" . default)
+   '((auto-mode . emacs) ("\\.mm\\'" . default)
      ("\\.x?html?\\'" . default)
      ("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1")))
  '(org-journal-dir "~/org/journal")
  '(org-journal-file-format "%Y-%V_%m-%d.org")
  '(org-journal-file-type 'weekly)
+ '(org-todo-keyword-faces
+   '(("PENDING_VALIDATION" . "orange") ("REJECTED" . "red")
+     ("APPROVED" . "forest green") ("SOMEDAY" . "gray")
+     ("CANCELED" . "gray")))
  '(org-todo-keywords
-   '((sequence "TODO(t)" "DONE(d)" "WAITING(w)" "SOMEDAY(s)" "NEXT(s)")))
+   '((sequence "TODO(t)" "APPROVED(a)" "PENDING_VALIDATION(v)" "|"
+               "DONE(d)" "REJECTED(r)" "CANCELED(x)")
+     (sequence "SOMEDAY(s)" "|" "DONE(d)" "CANCELED(x)")
+     (sequence "COMMENT(c)" "|")))
  '(package-archives
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(org-journal org-journal-list htmlize image-dired+ image+ org-pdftools company-c-headers ws-butler web wc-mode w3m vlf swiper stickyfunc-enhance srefactor spotify smex smartparens skewer-mode org-superstar org-projectile matlab-mode markdown-preview-mode markdown-preview-eww markdown-mode+ magit-popup magit ledger-mode jinja2-mode indent-guide helm-gtags helm-fuzzy-find helm-fuzzier gnu-elpa-keyring-update ggtags function-args flymd flycheck-ledger find-file-in-project fancy-narrow elpy cmake-mode clean-aindent-mode))
+   '(aidermacs claude-code cmake-mode
+               company-c-headers elpy find-file-in-project
+               flycheck-ledger flymd function-args ggtags
+               gnu-elpa-keyring-update gptel gptel-agent gptel-magit
+               helm-fuzzier helm-fuzzy-find helm-gtags htmlize image+
+               image-dired+ indent-guide jinja2-mode ledger-mode magit
+               magit-popup magnus markdown-mode+ markdown-preview-eww
+               markdown-preview-mode matlab-mode ob-aider ob-ipython
+               org-journal org-journal-list org-pdftools
+               org-projectile org-roam org-superstar skewer-mode
+               smartparens smex spotify srefactor
+               swiper vlf w3m wc-mode web ws-butler))
  '(py-shell-name "ipython3")
- '(python-shell-interpreter "python3")
+ '(python-shell-interpreter "~/miniconda3/bin/python3")
+ '(safe-local-variable-values
+   '((eval let
+           ((root
+             (locate-dominating-file default-directory
+                                     ".dir-locals.el")))
+           (when root
+             (dolist
+                 (f (directory-files-recursively root "\\.org\\'"))
+               (add-to-list 'org-agenda-files f))))
+     (eval let
+           ((root
+             (locate-dominating-file default-directory
+                                     ".dir-locals.el")))
+           (dolist (f (directory-files-recursively root "\\.org\\'"))
+             (add-to-list 'org-agenda-files f)))
+     (eval progn (require 'org)
+           (let
+               ((devlogs
+                 (directory-files-recursively
+                  (locate-dominating-file default-directory
+                                          ".dir-locals.el")
+                  "\\.org\\'")))
+             (dolist (f devlogs) (add-to-list 'org-agenda-files f))))
+     (eval progn (require 'org)
+           (let
+               ((devlogs
+                 (directory-files-recursively
+                  (locate-dominating-file default-directory
+                                          ".dir-locals.el")
+                  "\\`devlog\\.org\\'")))
+             (dolist (f devlogs) (add-to-list 'org-agenda-files f))))
+     (org-confirm-babel-evaluate)))
  '(smerge-command-prefix "\33")
  '(sr-speedbar-right-side nil)
  '(sr-speedbar-skip-other-window-p t)
@@ -152,6 +230,9 @@
 (fset 'yes-or-no-p 'y-or-n-p)            ;; enable y/n answers to yes/n
 (column-number-mode t)
 
+;; Disable C-z suspend
+(global-unset-key (kbd "C-z"))
+
 (setq
  confirm-nonexistent-file-or-buffer nil  ;; not needed
  completion-ignore-case t                ;; ignore case when completing...
@@ -175,11 +256,6 @@
 
 ;; show unncessary whitespace that can mess up your diff
 (add-hook 'prog-mode-hook (lambda () (interactive) (setq show-trailing-whitespace 1)))
-
-;; Package: clean-aindent-mode
-(require 'clean-aindent-mode)
-(add-hook 'prog-mode-hook 'clean-aindent-mode)
-(add-hook 'c-mode-common-hook 'ws-butler-mode)
 
 ;; Speedbar in same frame
 (add-to-list 'load-path "~/.emacs.d/sr-speedbar/")
@@ -222,27 +298,34 @@
 
 ;; Org-mode:
 ;(require 'org)
-
 (define-key mode-specific-map [?a] 'org-agenda)
 
-(eval-after-load "org"
-  '(progn
-     (define-prefix-command 'org-todo-state-map)
 
-     (define-key org-mode-map "\C-cx" 'org-todo-state-map)
+;; 1. Disable the built-in DONE strikethrough that was causing the "leak"
+(setq org-fontify-done-headline nil)
 
-     (define-key org-todo-state-map "x"
-       #'(lambda nil (interactive) (org-todo "CANCELLED")))
-     (define-key org-todo-state-map "d"
-       #'(lambda nil (interactive) (org-todo "DONE")))
-     (define-key org-todo-state-map "f"
-       #'(lambda nil (interactive) (org-todo "DEFERRED")))
-     (define-key org-todo-state-map "l"
-       #'(lambda nil (interactive) (org-todo "DELEGATED")))
-     (define-key org-todo-state-map "s"
-       #'(lambda nil (interactive) (org-todo "STARTED")))
-     (define-key org-todo-state-map "w"
-       #'(lambda nil (interactive) (org-todo "WAITING")))))
+;; 2. Define the face (Strikethrough + Dimmed)
+(defface my-org-canceled-face
+  '((t (:strike-through t :foreground "#75715e" :slant italic)))
+  "Face for CANCELED headlines and their body content.")
+
+;; 3. Define the search logic for the highlighter
+(defun my/org-find-canceled-subtree (limit)
+  "Search for a CANCELED headline and return the boundaries of its subtree."
+  (while (re-search-forward "^\\*+ +CANCELED " limit t)
+    (let* ((beg (match-beginning 0))
+           (end (save-excursion (org-end-of-subtree t t) (point))))
+      ;; Apply the face from the start of the headline to the end of the subtree
+      (add-text-properties beg end '(face my-org-canceled-face))
+      (goto-char end)))
+  nil)
+
+;; 4. Tell Org-mode to use this highlighter safely
+(add-hook 'org-mode-hook
+          (lambda ()
+            (font-lock-add-keywords nil
+              '((my/org-find-canceled-subtree (0 'my-org-canceled-face prepend)))
+              'append)))
 
 ;;(load "~/org-files.el")
 
@@ -269,6 +352,7 @@
            "cd %o; bibtex %b"
            cmd
            cmd)))
+(require 'ox-beamer)
 
 ;; Octave mode
 (autoload 'octave-mode "octave-mode" nil t)
@@ -299,6 +383,7 @@
  '(magit-diff-added ((t (:background "#335533" :foreground "blue"))))
  '(magit-diff-added-highlight ((t (:background "#336633" :foreground "blue"))))
  '(magit-sequence-done ((t (:foreground "grey"))))
+ '(org-done ((t (:strike-through t))))
  '(org-link ((t (:inherit link :foreground "blue" :underline t))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "DeepSkyBlue1"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "dark orange"))))
@@ -405,7 +490,7 @@
 ;; 			  (eq (window-buffer (posn-window (event-start
 ;; 							   first)))
 ;; 			      (get-buffer "*Completions*"))
-;; 			  (eq (key-binding key) 'mouse-choose-completion)))
+;; 		     (eq (key-binding key) 'mouse-choose-completion)))
 ;; 		   (progn
 ;; 		     (mouse-choose-completion first)
 ;; 		     (set-window-configuration conf))
@@ -475,8 +560,8 @@
 
 (defun my-after-init-hook ()
 
-  (require 'smex)
-  (global-set-key (kbd "M-x") 'smex)
+(require 'smex)
+(global-set-key (kbd "M-x") 'smex)
   (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
   ;; This is your old M-x.
@@ -520,6 +605,7 @@
 ;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
+
 
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB work in terminal
@@ -609,9 +695,9 @@
 
 (semantic-add-system-include "/usr/local/include")
 
-(require 'stickyfunc-enhance)
-(add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
-(setq-local eldoc-documentation-function #'ggtags-eldoc-function)
+;; (require 'stickyfunc-enhance)
+;; (add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
+;; (setq-local eldoc-documentation-function #'ggtags-eldoc-function)
 
 (semantic-mode 1)
 
@@ -648,11 +734,11 @@
 (setq dired-omit-files
     (concat dired-omit-files "\\|^\\..+$\\|\\^$"))
 
+(add-hook 'dired-mode-hook 'auto-revert-mode)
 
 (require 're-builder)
 (setq reb-re-syntax 'string)
 
-(fancy-narrow-mode)
 ;(find-file "~/todo.package")
 (autoload 'vc-git-root "vc-git")
 
@@ -675,3 +761,119 @@
 
                                         ; Fusesoc .core files are YAML files
 (add-to-list 'auto-mode-alist '("\\.core" . yaml-mode))
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)))
+
+(use-package ob-python
+  :straight t
+  :after org
+  :config
+  (add-to-list 'org-babel-load-languages '(python . t)))
+
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/local/ox-ipynb/"))
+(require 'ox-ipynb)
+
+(use-package aidermacs
+  :ensure t ; or however you install it
+  :config
+  (setenv "OPENAI_API_BASE" "https://apps-dev.inside.anl.gov/argoapi/v1")
+  (setenv "OPENAI_API_KEY" "gbruno")
+
+  ;; Set the model and point to your settings file
+  (setq aidermacs-args '("--architect"
+                         "--model" "openai/claudeopus46"
+                         "--editor-model" "openai/claudesonnet46"
+                         "--editor-edit-format" "editor-diff"
+                         "--no-show-model-warnings"
+                         "--no-auto-accept-architect"
+                         "--no-auto-lint"
+;                         "--model-settings-file" ".aider.model.settings.yml"
+                         ))
+
+  ;; Optional: Keybindings
+  (global-set-key (kbd "C-c C-a") 'aidermacs-transient-menu))
+(setq aidermacs-program "~/.local/bin/aider")
+
+(with-eval-after-load 'org
+  (add-to-list 'org-structure-template-alist 
+               '("p" . "src python :results output :session constants")))
+
+(add-to-list 'org-agenda-files "~/work/org/inbox.org")
+
+(global-set-key (kbd "C-c c") 'org-capture)
+
+(setq org-capture-templates
+      '(("t" "Task" entry (file "~/work/org/inbox.org")
+         "* TODO %?\n  %U\n" :empty-lines 1)
+        ("T" "Task with link" entry (file "~/work/org/inbox.org")
+         "* TODO %?\n  %U\n  %a\n" :empty-lines 1)
+        ("l" "Note" entry (file "~/work/org/inbox.org")
+         "* %?\n  %U\n  %a\n" :empty-lines 1)
+        ("e" "Email" entry (file "~/work/org/inbox.org")
+         "* TODO Send: %?\n  %U\n\n%i" :empty-lines 1)))
+
+(setq org-refile-targets '((org-agenda-files :maxlevel . 3))
+      org-refile-use-outline-path 'file
+      org-outline-path-complete-in-steps nil)
+
+(add-to-list 'org-agenda-files "~/work/org/fofb/fofb.org")
+(add-to-list 'org-agenda-files "~/work/org/befi/befi.org")
+(add-to-list 'org-agenda-files "~/work/org/fofb/gcn/gcn.org")
+(add-to-list 'org-agenda-files "~/work/org/general/general.org")
+
+
+(global-set-key (kbd "C-c j") 'org-journal-new-entry)
+
+(require 'org-tempo)
+(add-to-list 'org-structure-template-alist '("p" . "src python"))
+(add-to-list 'org-structure-template-alist '("sh" . "src sh"))
+(add-to-list 'org-structure-template-alist '("vhdl" . "src vhdl"))
+
+;; I never use this, but fatfinger them all the time
+(global-unset-key (kbd "C-x C-c"))
+(global-unset-key (kbd "C-x C-z"))
+
+;; Load Magnus from dev fork (overrides ELPA version)
+;;(push (expand-file-name "~/work/tools/magnus") load-path)
+;;(require 'magnus)
+;; (global-set-key (kbd "C-x m") 'magnus)
+
+(add-to-list 'load-path "~/work/tools/heitor/batuta")
+(require 'heitor-batuta)
+(require 'partitura-mode)
+(global-set-key (kbd "C-x m") 'heitor-batuta)
+
+;; Emacs MCP server — allows Claude Code (Regis) to interact with Emacs
+(add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-mcp-server")
+(require 'mcp-server)
+(setq mcp-server-security-allowed-dangerous-functions
+      '(find-file find-file-noselect view-file write-file
+        insert-file-contents buffer-string))
+(setq load-prefer-newer t)
+(mcp-server-start-unix)
+
+
+  ;; Add buffer-context functions to always-allowed list
+;; — read-mostly, low risk, lets me read open buffers
+(setq mcp-server-security-allowed-dangerous-functions
+      (append mcp-server-security-allowed-dangerous-functions
+              '(with-current-buffer with-temp-buffer)))
+
+;; Turn on prompt mode for everything else
+;; — shell, network, process spawning, file write etc. will prompt you
+(mcp-server-security-set-prompting t)
+
+;; (use-package org-roam
+;;   :ensure t                     ; org-roam is a package.el package — already installed
+;;   :custom
+;;   (org-roam-directory (file-truename "~/projects/notes"))
+;;   (org-roam-db-location (expand-file-name "org-roam.db" user-emacs-directory))
+;;   :bind (("C-c n f" . org-roam-node-find)
+;;          ("C-c n i" . org-roam-node-insert)
+;;          ("C-c n c" . org-roam-capture)
+;;          ("C-c n l" . org-roam-buffer-toggle))
+;;   :config
+;;   (require 'ucs-normalize)
+;;   (org-roam-db-autosync-mode))
