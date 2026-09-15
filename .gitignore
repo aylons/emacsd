@@ -16,3 +16,18 @@ semanticdb*
 org/*
 /smex-items
 /local_init.el
+.aider*
+
+# Native-compilation output (183 MB, regenerated on demand)
+eln-cache/
+
+# Package/tool state, not configuration
+transient/
+org-roam.db
+.org-id-locations
+local/
+projects
+
+# AI tool state
+.claude/
+.chatgpt-shell.el
