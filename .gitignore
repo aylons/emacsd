@@ -31,3 +31,10 @@ projects
 # AI tool state
 .claude/
 .chatgpt-shell.el
+
+# Vendored upstream clones -- each carries its own .git, so tracking them
+# here would create broken gitlinks. Re-clone on a new machine:
+#   git clone https://github.com/rhblind/emacs-mcp-server.git site-lisp/emacs-mcp-server
+#   git clone https://github.com/AllTheLife/Gemini.el
+site-lisp/
+Gemini.el/
