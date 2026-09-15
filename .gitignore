@@ -38,3 +38,6 @@ projects
 #   git clone https://github.com/AllTheLife/Gemini.el
 site-lisp/
 Gemini.el/
+# Stray root-owned file (22 B, Aug 2024), unreadable as user -- not config
+gcc.conf
+
