@@ -767,7 +767,6 @@
  '((python . t)))
 
 (use-package ob-python
-  :straight t
   :after org
   :config
   (add-to-list 'org-babel-load-languages '(python . t)))
